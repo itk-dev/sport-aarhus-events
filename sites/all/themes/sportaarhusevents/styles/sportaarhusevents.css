@@ -11,6 +11,7 @@
 */
 
 body {
+  background: #bfdbee url('../images/body-background.jpg') repeat-x top center;
   color: #000;
   font: 100%/150% Verdana, Arial, sans-serif;
 }
@@ -41,4 +42,66 @@ td {
 
 dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset {
   margin-bottom: 10px;
+}
+
+/* Containers */
+
+#header {
+  background-color: #e1e1e1;
+}
+
+#main-menu {
+  background-color: #d1d1d1;
+}
+
+#main-menu-inner {
+  padding: 10px;
+}
+
+#main {
+  background-color: #fff;
+  padding: 15px;
+}
+
+#breadcrumb {
+  background-color: #d9d9d9;
+}
+
+#content {
+  background-color: #d6d6d6;
+  margin: 0 15px 0 0;
+}
+
+#sidebar-left,
+#sidebar-right {
+  background-color: #444444;
+  margin: 0;
+}
+
+#sidebar-left-inner,
+#sidebar-right-inner {
+  padding: 10px;
+}
+
+#footer-wrapper {
+  background-color: #f1f1f1;
+}
+
+#footer-blocks {
+  background-color: #a50000;
+  padding: 10px;
+}
+
+#footer {
+  background-color: #334854;
+  padding: 10px;
+}
+
+/*
+  General menu stuff
+*/
+
+ul.menu li {
+  display: inline;
+  list-style: none;
 }

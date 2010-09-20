@@ -12,153 +12,94 @@
   <?php print $scripts; ?>
 </head>
 
-<?php
-  if ($node->field_body_background_image[0]['imceimage_path'] != '') {
-    $background_image = ' style="background: url(\'' . $node->field_body_background_image[0]['imceimage_path'] . '\') no-repeat center 80px;"';
-  }
-?>
-
 <body class="<?php print $body_classes; ?>"<?php print $background_image ?>>
   <p><a name="top" id="top"></a></p>
   <div id="wrapper">
-  <?php if ($aaktopbar): ?>
-    <div id="aaktopbar" class="region clear-block">
-      <div id="aaktopbar-inner" class="container-16">
-        <?php print $aaktopbar; ?>
-      </div>
-    </div> <!--//end #aaktopbar -->
-  <?php endif; ?>
-
-  <div id="page" class="container-16 clear-block">
-
-    <a name="navigation-top" id="navigation-top"></a>
-
-    <div id="site-header" class="clear-block">
-	    <div id="header-inner">
-        <div id="branding" class="clear-block">
-          <?php if ($site_logo): ?>
-            <span id="logo"><?php print $site_logo; ?></span>
-          <?php endif; ?>
-        </div> <!--/#branding -->
-
-        <?php if ($main_menu_links || $secondary_menu_links): ?>
-        <div id="site-menu" class="grid-12">
-          <div id="navbar-inner">
-            <?php print $main_menu_links; ?>
-            <?php print $secondary_menu_links; ?>
-          </div> <!--/#navbar-inner -->
-        </div> <!--/#site-menu -->
-        <?php endif; ?>
-
-        <?php if ($search_box): ?>
-          <div id="search-box" class="grid-6 prefix-10"><?php print $search_box; ?></div>
+    <div id="page" class="container-16 clear-block">
+    <div id="header" class="clear-block">
+      <div id="header-inner">
+        <?php if ($site_logo): ?>
+          <span id="logo"><?php print $site_logo; ?></span>
         <?php endif; ?>
       </div> <!--/#header-inner -->
+    </div> <!--/#header -->
 
-      <div id="site-subheader" class="prefix-1 suffix-1 clear-block">
-        <?php if ($header): ?>
-        <div id="header-region" class="region <?php print ns('grid-16', $mission, 7); ?> clear-block">
-          <?php print $header; ?>
-        </div>
-        <?php endif; ?>
-      </div> <!--/#site-subheader -->
-	  </div> <!--/#site-header -->
+    <?php if ($main_menu_links || $secondary_menu_links): ?>
+    <div id="site-menu" class="grid-12">
+      <div id="navbar-inner">
+        <?php print $main_menu_links; ?>
+        <?php print $secondary_menu_links; ?>
+      </div> <!--/#navbar-inner -->
+    </div> <!--/#site-menu -->
+    <?php endif; ?>
+
+    <?php if ($search_box): ?>
+      <div id="search-box" class="grid-6 prefix-10"><?php print $search_box; ?></div>
+    <?php endif; ?>
 
     <?php if ($mainmenu): ?>
-      <div id="main-menu" class="clear-block">
-        <div id="main-menu-inner" class="container-16">
-          <?php print $mainmenu; ?>
+      <div id="main-menu" class="container-16 clear-block">
+        <div id="main-menu-inner">
+          <?php print $mainmenu; ?>          
         </div>
-      </div> <!--//end #aaktopbar -->
+      </div> <!--//end #main-menu -->
     <?php endif; ?>    
 
-    <div id="main">
+    <div id="main" class="clear-block">
 
-      <?php if ($content_top): ?>
-        <div id="content-top" class="region region-content-top">
-      <?php print $content_top; ?>
-        </div> <!-- /#content-top -->
-      <?php endif; ?>
+      <div id="main-wrapper">
 
-       <?php print $breadcrumb; ?>
+         <?php print $breadcrumb; ?>
 
-        <div id="content" class="column <?php print ns('grid-16', $left, 4) . ' ' . ns('push-4', !$left, 4); ?>">
-  	    <div id="content-inner">
+          <?php print $messages; ?>
+          <?php print $help; ?>
 
-              <?php if ($tabs): ?>
-                <div class="tabs"><?php print $tabs; ?></div>
-              <?php endif; ?>
+          <?php if ($left && !$front_page): ?>
+            <div id="sidebar-left" class="column sidebar region grid-5">
+                    <div id="sidebar-left-inner">
+                <?php print $left; ?>
+              </div>
+            </div> <!-- //end #sidebar-left-inner -->
+          <?php endif; ?>
 
-              <?php print $messages; ?>
-              <?php print $help; ?>
-
-              <div id="main-content" class="region clear-block">
+          <div id="content" class="column grid-10 clear-block">
+            <div id="content-inner">
+              <div id="main-content" class="region">
+                <?php if ($tabs): ?>
+                  <div class="tabs clear-block"><?php print $tabs; ?></div>
+                <?php endif; ?>
                 <?php print $content; ?>
-                <?php if ($right && !$is_front): ?>
-                <div id="sidebar-right" class="column sidebar region grid-4">
-                  <div id="sidebar-right-inner">
-                    <?php print $right; ?>
-                  </div>
-                </div> <!--//end #sidebar-right-inner -->
-                <?php endif; ?>
-
-                <?php if ($content_bottom): ?>
-                  <div id="content-bottom" class="region region-content_bottom">
-                    <?php print $content_bottom; ?>
-                  </div> <!-- /#content-bottom -->
-                <?php endif; ?>
-
               </div> <!-- /#main-content -->
-
-              <?php print $feed_icons; ?>
-
-
 
             </div> <!-- // #content-inner -->
           </div> <!-- //#content -->
 
-          <?php if ($left): ?>
-          <div id="sidebar-left" class="column sidebar region grid-4 <?php print ns('pull-12'); ?>">
-                  <div id="sidebar-left-inner">
-              <?php print $left; ?>
-            </div>
-          </div> <!-- //end #sidebar-left-inner -->
-          <?php endif; ?>
-
-          <?php if ($right && $is_front): ?>
-          <div id="sidebar-right" class="column sidebar region grid-4">
+          <?php if ($right && $front_page): ?>
+          <div id="sidebar-right" class="column sidebar region grid-6">
             <div id="sidebar-right-inner">
               <?php print $right; ?>
             </div>
-          </div> <!--//end #sidebar-right-inner -->
-          <?php endif; ?>         
+          </div> <!--//end #sidebar-right -->
+          <?php endif; ?>
 
-	</div> <!-- //end #main -->
+          </div> <!-- //end #main-wrapper -->
+      </div> <!-- //end #main -->
 
-  </div> <!-- /#page -->
+    </div> <!-- /#page -->
 
-  <div id="footer" class="container-16 clear-block">
-    <?php if ($footer): ?>
-      <div id="footer-region" class="container-16">
-        <div id="footer-inner">
+    <div id="footer-wrapper" class="container-16">
+      <?php if ($footer_blocks): ?>
+        <div id="footer-blocks" class="clear-block">
+          <?php print $footer_blocks; ?>
+        </div><!-- /#footer-blocks -->
+      <?php endif; ?>
+
+      <?php if ($footer): ?>
+        <div id="footer" class="clear-block">
           <?php print $footer; ?>
         </div>
-        <div id="to-top"><a href="#top"><?php print t('Top'); ?></a></div>
-        </div> <!--//end #footer-inner -->
-    <?php endif; ?>
-
-    <?php if ($footer_message): ?>
-      <div id="footer-message" class="grid-14">
-        <?php print $footer_message; ?>
-      </div>
-    <?php endif; ?>
-  </div> <!-- /#footer -->
-
-  <?php if ($footer_logos): ?>
-    <div id="footer-logos" class="container-16 clear-block">
-      <?php print $footer_logos; ?>
+      <?php endif; ?>
     </div>
-  <?php endif; ?>
 
   <?php print $closure; ?>
   
