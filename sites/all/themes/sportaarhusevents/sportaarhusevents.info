@@ -6,11 +6,11 @@ engine      = phptemplate
 base theme  = mothership
 
 ;--------------------- regions -----------------------------
-regions[left]           = Left sidebar
-regions[right]          = Right sidebar
-regions[mainmenu]       = Mainmenu
-regions[content]        = Content
 regions[header]         = Header
+regions[mainmenu]       = Mainmenu
+regions[left]           = Left sidebar
+regions[content]        = Content
+regions[right]          = Right sidebar
 regions[footer_blocks]  = Footer blocks
 regions[footer]         = Footer
 regions[closure_region] = Closure
@@ -21,6 +21,7 @@ stylesheets[all][]   = styles/framework/reset.css
 stylesheets[all][]   = styles/framework/960.css
 stylesheets[all][]   = styles/sportaarhusevents.css
 stylesheets[print][] = styles/print.css
+stylesheets[all][]   = styles/custom-admin.css
 
 ;--------------------- scripts ------------------------------
 scripts[] = scripts/jquery.example.min.js

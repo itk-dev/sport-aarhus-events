@@ -19,8 +19,9 @@
     <div id="header" class="clear-block">
       <div id="header-inner">
         <?php if ($site_logo): ?>
-          <span id="logo"><?php print $site_logo; ?></span>
+          <div id="logo"><?php print $site_logo; ?></div>
         <?php endif; ?>
+        <?php print $header ?>
       </div> <!--/#header-inner -->
     </div> <!--/#header -->
 
@@ -54,7 +55,7 @@
           <?php print $messages; ?>
           <?php print $help; ?>
 
-          <?php if ($left && !$front_page): ?>
+          <?php if ($left && !$is_front): ?>
             <div id="sidebar-left" class="column sidebar region grid-5">
                     <div id="sidebar-left-inner">
                 <?php print $left; ?>
@@ -62,7 +63,7 @@
             </div> <!-- //end #sidebar-left-inner -->
           <?php endif; ?>
 
-          <div id="content" class="column grid-10 clear-block">
+          <div id="content" class="column <?php $is_front ? print 'grid-10' : print 'grid-11' ?> clear-block">
             <div id="content-inner">
               <div id="main-content" class="region">
                 <?php if ($tabs): ?>
@@ -74,7 +75,7 @@
             </div> <!-- // #content-inner -->
           </div> <!-- //#content -->
 
-          <?php if ($right && $front_page): ?>
+          <?php if ($right && $is_front): ?>
           <div id="sidebar-right" class="column sidebar region grid-6">
             <div id="sidebar-right-inner">
               <?php print $right; ?>
