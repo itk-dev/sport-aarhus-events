@@ -1,0 +1,4 @@
+.block.block-views .content .title span {
+  background: url('../images/sprites.png') no-repeat 1px 2px;
+  height: 12px;
+}

@@ -88,13 +88,11 @@ dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset {
 
 #sidebar-left,
 #sidebar-right {
-  background-color: #444444;
   margin: 0;
 }
 
 #sidebar-left-inner,
 #sidebar-right-inner {
-  padding: 10px;
 }
 
 #footer-blocks {
@@ -255,7 +253,7 @@ ul.menu li {
 }
 
 /*
-  Spotboxes
+  Spotboxes, views block
 */
 
 .block-nodeblock {
@@ -268,6 +266,7 @@ ul.menu li {
   text-decoration: none;
 }
 
+.block.block-views,
 .block-nodeblock .spotbox {
   background-color: #fff;
   font-size: 75%;
@@ -276,14 +275,19 @@ ul.menu li {
   width: 300px;
 }
 
+.block.block-views h3,
 .block-nodeblock .spotbox .title {
   background: #444444 url('../images/header-bg.png') repeat-x;
   border-radius: 8px 8px 0 0;
   -moz-border-radius: 8px 8px 0 0;
+  color: #fff;
+  font-weight: normal;
   line-height: 345%;
   height: 40px;
+  margin: 0;
 }
 
+.block.block-views h3,
 .block-nodeblock .spotbox .title a {
   display: block;
   font-family: 'Nobile', arial, sans-serif;
@@ -296,6 +300,7 @@ ul.menu li {
   padding: 2px 0 0;
 }
 
+.block.block-views .content,
 .block-nodeblock .spotbox .content {
   background: #fff url('../images/gradient-shadow-top-8.png') repeat-x top;
   border-top: 1px solid #c3c2c2;
@@ -305,6 +310,14 @@ ul.menu li {
   min-height: 45px;
   padding: 15px;
 }
+
+.block.block-views .content {
+   padding: 5px 15px;
+}
+
+/*
+  Spotbox specific
+*/
 
 .block-nodeblock .spotbox .link {
   float: right;
@@ -320,4 +333,43 @@ ul.menu li {
 
 .block-nodeblock .spotbox .link a:hover {
   color: #8d3205;
+}
+
+ /*
+  Views block specific
+ */
+
+.block.block-views .content .row {
+  border-top: 1px solid #d7d7d7;
+  padding: 15px 0;
+}
+
+.block.block-views .content .row.first {
+  border: 0;
+}
+
+.block.block-views .content .created {
+  color: #969696;
+  font-size: 95%;
+}
+
+.block.block-views .content .title span {
+  background: url('../images/sprites.png') no-repeat 1px 5px;
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+}
+
+.block.block-views .content .title,
+.block.block-views .content .title a,
+.block.block-views .content .title a:link,
+.block.block-views .content .title a:visited {
+  color: #5e5e5e;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.block.block-views .content .title a:hover,
+.block.block-views .content .title a:active {
+  color: #a5b938;
 }

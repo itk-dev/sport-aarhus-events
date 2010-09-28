@@ -23,6 +23,9 @@ stylesheets[all][]   = styles/sportaarhusevents.css
 stylesheets[print][] = styles/print.css
 stylesheets[all][]   = styles/custom-admin.css
 
+;--------------------- ie 7 styles ------------------------------
+ie stylesheets[if IE 7][all][] = styles/ie7.css
+
 ;--------------------- scripts ------------------------------
 scripts[] = scripts/jquery.example.min.js
 scripts[] = scripts/jquery.hoverintent.minified.js
