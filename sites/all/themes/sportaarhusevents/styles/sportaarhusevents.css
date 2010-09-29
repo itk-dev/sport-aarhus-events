@@ -1,6 +1,13 @@
 /* CSS: Brian Jensen @ www.magnify.dk */
 
+/*
+  Admin links etc.
+*/
 
+.views-admin-links,
+.admin-links {
+  display: none !important;
+}
 
 /*
   Font, colors etc.
@@ -372,4 +379,56 @@ ul.menu li {
 .block.block-views .content .title a:hover,
 .block.block-views .content .title a:active {
   color: #a5b938;
+}
+
+ /*
+  Feature content
+ */
+
+.view-featured-content {
+  height: 225px;
+  overflow: hidden;
+  position: relative;
+  width: 615px;
+}
+
+.view-featured-content .views_slideshow_controls,
+.view-featured-content .views_slideshow_pagerNumbered {
+  bottom: 10px;
+  height: 35px;
+  left: 0;
+  position: absolute;
+  width: 615px;
+  z-index: 6;
+}
+
+.view-featured-content .views_slideshow_pause {
+  display: none;
+}
+
+.view-featured-content .image {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.view-featured-content .nd-region-middle {
+  background: #000;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  color: #fff;
+  left: 30px;
+  min-height: 60px;
+  opacity: 0.75;
+  position: absolute;
+  top: 35px;
+  width: 335px;
+}
+
+.view-featured-content .title {
+  display: block;
+}
+
+.view-featured-content .body {
+  display: block;
 }
