@@ -430,13 +430,13 @@ ul.menu li {
   /*display: none;*/
 }
 
-.view-featured-content .field-featured-image-fid {
+.view-featured-content .link {
   left: 0;
   position: absolute;
   top: 0;
 }
 
-.view-featured-content .field-featured-image-fid a {
+.view-featured-content .link a {
   border-radius: 8px;
   -moz-border-radius: 8px;
   display: block;
