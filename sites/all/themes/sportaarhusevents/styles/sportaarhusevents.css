@@ -382,7 +382,7 @@ ul.menu li {
 }
 
  /*
-  Feature content
+  Featured content
  */
 
 .view-featured-content {
@@ -392,13 +392,21 @@ ul.menu li {
   width: 615px;
 }
 
+.view-featured-content .views_slideshow_controls .views_slideshow_previous,
+.view-featured-content .views_slideshow_controls .views_slideshow_pause,
+.view-featured-content .views_slideshow_controls .views_slideshow_play,
+.view-featured-content .views_slideshow_controls .views_slideshow_next,
+.view-featured-content .views_slideshow_singleframe_pager,
+.view-featured-content .views_slideshow_controls {
+  position: absolute;
+  z-index: 6;
+}
+
 .view-featured-content .views_slideshow_controls {
   bottom: 20px;
   height: 35px;
   left: 0;
-  position: absolute;
   width: 615px;
-  z-index: 6;
 }
 
 .view-featured-content .views_slideshow_singleframe_pager {
@@ -410,11 +418,9 @@ ul.menu li {
   display: block;
   float: left;
   height: 35px;
-  right: 105px;
+  right: 60px;
   outline: 0;
   overflow: hidden;
-  position: absolute;
-  z-index: 6;
 }
 
 .view-featured-content .views_slideshow_singleframe_pager .pager-item {
@@ -425,7 +431,6 @@ ul.menu li {
   background-color: #808080;
   border-radius: 3px;
   -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
   display: block;
   float: left;
   height: 13px;
@@ -442,13 +447,6 @@ ul.menu li {
   background-color: #fff;
 }
 
-.view-featured-content .views_slideshow_controls .views_slideshow_previous,
-.view-featured-content .views_slideshow_controls .views_slideshow_pause,
-.view-featured-content .views_slideshow_controls .views_slideshow_play,
-.view-featured-content .views_slideshow_controls .views_slideshow_next {
-  position: absolute;
-}
-
 .view-featured-content .views_slideshow_controls .views_slideshow_previous {
   background: url('../images/slideshow/slideshow-controls.png') no-repeat 0 -35px;
   display: block;
@@ -462,7 +460,7 @@ ul.menu li {
 .view-featured-content .views_slideshow_controls .views_slideshow_play,
 .view-featured-content .views_slideshow_controls .views_slideshow_pause {
   background: url('../images/slideshow/slideshow-controls.png') no-repeat top left;
-  display: block;
+  display: none;
   height: 35px;
   right: 60px;
   outline: 0;
@@ -502,7 +500,6 @@ ul.menu li {
   background: url('../images/background-75.png');
   border-radius: 0 8px 8px 0;
   -moz-border-radius: 0 8px 8px 0;
-  -webkit-border-radius: 0 8px 8px 0;
   color: #fff;
   left: 0;
   min-height: 60px;
