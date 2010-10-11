@@ -30,7 +30,6 @@
  * @ingroup views_templates
  */
 ?>
-
 <?php if ($header): ?>
   <div class="view-header">
     <?php print $header; ?>
@@ -50,7 +49,7 @@
 <?php endif; ?>
 
 <?php if ($rows): ?>
-  <div class="spotbox content">
+  <div class="<?php print $classes_array[4] ?> content">
     <?php print $rows; ?>
   </div>
 <?php elseif ($empty): ?>
