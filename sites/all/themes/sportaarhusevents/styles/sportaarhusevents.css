@@ -163,13 +163,13 @@ dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset {
 
 #footer .block {
   float: left;
-  margin: 0 15px 0 0;
+  margin: 0 30px 0 0;
   min-width: 185px;
 }
 
 #footer .aarhus-kommune {
   position: absolute;
-  right: 40px;
+  right: 30px;
   top: 65px;
 }
 
