@@ -266,15 +266,14 @@ ul.list li {
 
 /* Secondary menu */
 
-#header ul.menu {
-  float: right;
+#header ul {
   position: absolute;
-  right: 70px;
+  right: 75px;
   text-align: right;
   top: 15px;
 }
 
-#header ul.menu li {
+#header ul li {
   background-color: #8b9ca3;
   border-radius: 5px;
   -moz-border-radius: 5px;
@@ -285,15 +284,15 @@ ul.list li {
   padding: 0;
 }
 
-#header ul.menu li.last {
+#header ul li.last {
   margin: 0;
 }
 
-#header ul.menu li:hover {
+#header ul li:hover {
   background-color: #687b83;
 }
 
-#header ul.menu li a {
+#header ul li a {
   color: #fff;
   display: block;
   font-size: 70%;
@@ -309,15 +308,14 @@ ul.list li {
   Language select
 */
 
-#block-lang-dropdown {
-  float: right;
-  position: absolute;
+#block-languageinterface ul {
   right: 0px;
-  text-align: right;
-  top: 12px;
   width: 75px;
 }
 
+#block-languageinterface .active {
+  display: none;
+}
 
 /*
   Spotboxes, views block
