@@ -30,6 +30,7 @@ a:visited,
 a:hover,
 a:active {
   color: #000;
+  outline: 0;
 }
 
 a:hover {
@@ -209,6 +210,30 @@ dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset {
 }
 
 /*
+  Breadcrumb
+*/
+
+.breadcrumb {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #f0f0f0;
+  color: #888888;
+  font-size: 70%;
+  padding: 6px 10px 8px;
+}
+
+.breadcrumb a,
+.breadcrumb a:link,
+.breadcrumb a:visited {
+  color: #768718;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:active {
+  text-decoration: underline;
+}
+
+/*
   General menu stuff
 */
 
@@ -302,6 +327,114 @@ ul.list li {
   text-decoration: none;
   text-transform: uppercase;
   text-shadow: 1px 1px 1px #646464;
+}
+
+/*
+  Submenu
+*/
+
+#sidebar-left {
+  font-size: 75%;
+}
+
+#sidebar-left .menu {
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar-left .menu li {
+  background: #ebebeb url('../images/gradient-shadow-top-35.png') repeat-x 0 -60px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  line-height: 175%;
+  margin: 3px 0 0;
+  padding: 0;
+}
+
+#sidebar-left .menu li:hover {
+  background: #f4f4f4 url('../images/gradient-shadow-top-35.png') repeat-x 0 -60px;
+}
+
+#sidebar-left .menu li:first {
+  margin: 0;
+}
+
+#sidebar-left .menu li li,
+#sidebar-left .menu li li:hover {
+  background: none;
+  margin: 0;
+}
+
+#sidebar-left .menu a {
+  background: url('../images/sprites.png') no-repeat 17px -47px;
+  color: #666666;
+  display: block;
+  padding: 6px 0 6px 30px;
+  text-decoration: none;
+}
+
+#sidebar-left .menu a.active {
+  background-position: 17px 14px;
+  color: #768718;
+}
+
+#sidebar-left .menu .menu li a {
+  background-position: 33px -47px;
+  padding-left: 45px;
+}
+
+#sidebar-left .menu .menu li a.active {
+  background-position: 33px 14px;
+}
+
+#sidebar-left .menu .menu .menu li a {
+  background-position: 48px -47px;
+  padding-left: 60px;
+}
+
+#sidebar-left .menu .menu .menu li a.active {
+  background-position: 48px 14px;
+}
+
+#sidebar-left .menu .menu .menu .menu li a {
+  background-position: 63px -47px;
+  padding-left: 75px;
+}
+
+#sidebar-left .menu .menu .menu .menu li a.active {
+  background-position: 63px 11px;
+}
+
+#sidebar-left .menu li.expanded.active-trail a.active-trail {
+  font-weight: bold;
+}
+
+#sidebar-left .menu li.expanded a.active-trail {
+  border-bottom: 1px solid #d8d8d8;
+}
+
+#sidebar-left .menu li.expanded.active-trail .menu {
+  background: url('../images/gradient-shadow-top-35.png') repeat-x 0 -70px;
+  border-top: 1px solid #f7f7f7;
+}
+
+#sidebar-left .menu .menu a.active-trail {
+  border: 0;
+}
+
+#sidebar-left .menu .menu li.active-trail .menu {
+  background: none;
+  border: 0;
+}
+
+#sidebar-left .menu a,
+#sidebar-left .menu a:link,
+#sidebar-left .menu a:visited {
+  text-decoration: none;
+}
+
+#sidebar-left .menu a:hover {
+  color: #768718;
 }
 
 /*
