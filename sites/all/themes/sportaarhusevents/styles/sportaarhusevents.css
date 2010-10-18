@@ -293,7 +293,7 @@ ul.list li {
 
 #header ul {
   position: absolute;
-  right: 75px;
+  right: 80px;
   text-align: right;
   top: 15px;
 }
@@ -343,25 +343,64 @@ ul.list li {
 }
 
 #sidebar-left .menu li {
-  background: #ebebeb url('../images/gradient-shadow-top-35.png') repeat-x 0 -60px;
-  border-radius: 8px;
-  -moz-border-radius: 8px;
+  background-color: #ebebeb;
+  border-radius: 8px 8px 0 0;
+  -moz-border-radius: 8px 8px 0 0;
   line-height: 175%;
-  margin: 3px 0 0;
+  margin: 0;
   padding: 0;
 }
 
-#sidebar-left .menu li:hover {
-  background: #f4f4f4 url('../images/gradient-shadow-top-35.png') repeat-x 0 -60px;
+#sidebar-left .menu li.last {
+  border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+  border-top: 1px solid #d8d8d8;
+}
+
+#sidebar-left .menu li.last a {
+  border-top: 1px solid #f7f7f7;
+}
+
+#sidebar-left .menu li li {
+  border-radius: 0;
+  -moz-border-radius: 0;
+  border-top: 1px solid #d8d8d8;
+}
+
+#sidebar-left .menu li li a {
+  border-top: 1px solid #f7f7f7;
+}
+
+#sidebar-left .menu li a:hover {
+  background-color: #f0f0f0;
+  border-radius: 0;
+  -moz-border-radius: 0;
+}
+
+#sidebar-left .menu li.first a:hover {
+  border-radius: 8px 8px 0 0;
+  -moz-border-radius: 8px 8px 0 0;
+}
+
+#sidebar-left .menu li.last a:hover {
+  border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+}
+
+#sidebar-left .menu li.first li a:hover,
+#sidebar-left .menu li li.first a:hover,
+#sidebar-left .menu li.last li a:hover,
+#sidebar-left .menu li li.last a:hover,
+#sidebar-left .menu li li a:hover {
+  border-radius: 0;
+  -moz-border-radius: 0;
 }
 
 #sidebar-left .menu li:first {
   margin: 0;
 }
 
-#sidebar-left .menu li li,
-#sidebar-left .menu li li:hover {
-  background: none;
+#sidebar-left .menu li li {
   margin: 0;
 }
 
@@ -374,6 +413,7 @@ ul.list li {
 }
 
 #sidebar-left .menu a.active {
+  background-color: #f0f0f0;
   background-position: 17px 14px;
   color: #768718;
 }
@@ -402,24 +442,15 @@ ul.list li {
 }
 
 #sidebar-left .menu .menu .menu .menu li a.active {
-  background-position: 63px 11px;
+  background-position: 63px 14px;
 }
 
-#sidebar-left .menu li.expanded.active-trail a.active-trail {
+#sidebar-left .menu li a.active-trail {
   font-weight: bold;
-}
-
-#sidebar-left .menu li.expanded a.active-trail {
-  border-bottom: 1px solid #d8d8d8;
 }
 
 #sidebar-left .menu li.expanded.active-trail .menu {
   background: url('../images/gradient-shadow-top-35.png') repeat-x 0 -70px;
-  border-top: 1px solid #f7f7f7;
-}
-
-#sidebar-left .menu .menu a.active-trail {
-  border: 0;
 }
 
 #sidebar-left .menu .menu li.active-trail .menu {
@@ -443,7 +474,12 @@ ul.list li {
 
 #block-languageinterface ul {
   right: 0px;
-  width: 75px;
+}
+
+#block-languageinterface ul li {
+  margin: 0;
+  text-align: center;
+  width: 65px;
 }
 
 #block-languageinterface .active {
