@@ -1,6 +1,13 @@
 /* CSS: Brian Jensen @ www.magnify.dk */
 
 /*
+  Google fonts
+*/
+
+@import url('//fonts.googleapis.com/css?family=Nobile:regular&subset=latin');
+@import url('//fonts.googleapis.com/css?family=Neuton:regular&subset=latin');
+
+/*
   Admin links etc.
 */
 
@@ -55,12 +62,6 @@ td {
 dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset {
   margin-bottom: 10px;
 }
-
-/*
-  Google fonts
-*/
-
-@import url('http://fonts.googleapis.com/css?family=Nobile:regular&subset=latin');
 
 /*
   Containers
@@ -713,7 +714,6 @@ ul.list li {
 
 .view-featured-content .link {
   left: 0;
-  position: absolute;
   top: 0;
 }
 
@@ -751,5 +751,34 @@ ul.list li {
   text-transform: none;
 }
 
-.view-featured-content .title {
+/*
+  Quote blocks
+*/
+
+#content .block-nodeblock {
+  margin: 0;
+}
+
+.block-nodeblock h3 {
+  display: none;
+}
+
+.block-nodeblock .quote {
+  background: url('../images/quote.png') no-repeat 45px 45px;
+}
+
+.block-nodeblock .quote .content {
+  font-family: 'Neuton', georgia, serif;
+  font-size: 95%;
+  padding: 50px 40px 30px 90px;
+  text-align: justify;
+}
+
+.block-nodeblock .quote .content p {
+  color: #515151;
+}
+
+.block-nodeblock .quote .content div {
+  color: #898989;
+  font-size: 90%;
 }
