@@ -63,6 +63,11 @@ dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset {
   margin-bottom: 10px;
 }
 
+h1 {
+  color: #636363;
+  font-size: 150%;
+}
+
 /*
   Containers
 */
@@ -90,6 +95,12 @@ dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset {
 
 #content {
   margin: 0 0 0 15px;
+}
+
+#content .node {
+  color: #666666;
+  font-size: 80%;
+  margin: 0 0 15px;
 }
 
 .front #content {
@@ -378,6 +389,7 @@ ul.list li {
   -moz-border-radius: 0;
 }
 
+#sidebar-left .menu li.first a.active,
 #sidebar-left .menu li.first a:hover {
   border-radius: 8px 8px 0 0;
   -moz-border-radius: 8px 8px 0 0;
@@ -752,7 +764,7 @@ ul.list li {
 }
 
 /*
-  Quote blocks
+  Quotes
 */
 
 #content .block-nodeblock {
@@ -763,22 +775,80 @@ ul.list li {
   display: none;
 }
 
-.block-nodeblock .quote {
+.block-nodeblock .quote,
+#event .quote {
   background: url('../images/quote.png') no-repeat 45px 45px;
 }
 
-.block-nodeblock .quote .content {
+#event .quote {
+  background-position: 25px 15px;
+}
+
+.block-nodeblock .quote .content,
+#event .quote .content {
   font-family: 'Neuton', georgia, serif;
   font-size: 95%;
   padding: 50px 40px 30px 90px;
   text-align: justify;
 }
 
-.block-nodeblock .quote .content p {
+#event .quote .content {
+  font-size: 110%;
+  line-height: 150%;
+  padding: 20px 70px 20px 70px;
+}
+
+.block-nodeblock .quote .content p,
+#event .quote .content p {
   color: #515151;
 }
 
-.block-nodeblock .quote .content div {
+.block-nodeblock .quote .content div,
+#event .quote .content div {
   color: #898989;
   font-size: 90%;
+}
+
+/*
+  Events
+*/
+
+#event {
+  font-size: 80%;
+  margin: 0 0 15px;
+}
+
+#event .date {
+  color: #999999;
+  font-size: 90%;
+  float: right;
+  margin: -20px 0 0;
+}
+
+#event .image {
+  margin: 15px 0;
+}
+
+/*
+  Messages
+*/
+
+.messages.status ul {
+  list-style: none;
+}
+
+div.messages, /* Important messages (status, warning, and error) for the user */
+div.status,
+div.warning,
+div.error {
+  clear: both;
+  min-height: 21px;
+  margin: 0 1em 5px 1em;
+  border: 2px solid #ff7;
+  padding: 5px 5px 5px 35px;
+  color: #000;
+  background-color: #ffc;
+  background-image: url(../images/messages/messages-status.png);
+  background-repeat: no-repeat;
+  background-position: 5px 5px;
 }
