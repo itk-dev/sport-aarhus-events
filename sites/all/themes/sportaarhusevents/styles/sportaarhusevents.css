@@ -37,7 +37,6 @@ a:visited,
 a:hover,
 a:active {
   color: #000;
-  outline: 0;
 }
 
 a:hover {
@@ -118,8 +117,9 @@ h1 {
 
 #footer-blocks {
   background: #a50000 url('../images/gradient-shadow-top-35.png') repeat-x top;
-  border-radius: 8px;
   -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
   height: 187px;
   margin: 15px 0 0;
   padding: 10px 0 10px 70px;
@@ -165,8 +165,9 @@ h1 {
 
 #footer {
   background: #334854 url('../images/gradient-shadow-top-35.png') repeat-x top;
-  border-radius: 8px;
   -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
   font-size: 70%;
   margin: 15px 0 0;
   min-height: 185px;
@@ -259,8 +260,9 @@ ul.list li {
 
 #main-menu {
   background: url('../images/main-menu-bg.png') repeat-x;
-  border-radius: 8px 8px 0 0;
   -moz-border-radius: 8px 8px 0 0;
+  -webkit-border-radius: 8px 8px 0 0;
+  border-radius: 8px 8px 0 0;
 }
 
 #main-menu ul.menu {
@@ -312,8 +314,9 @@ ul.list li {
 
 #header ul li {
   background-color: #8b9ca3;
-  border-radius: 5px;
   -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
   display: inline;
   float: left;
   margin: 0 15px 0 0;
@@ -356,16 +359,18 @@ ul.list li {
 
 #sidebar-left .menu li {
   background-color: #ebebeb;
-  border-radius: 8px 8px 0 0;
   -moz-border-radius: 8px 8px 0 0;
+  -webkit-border-radius: 8px 8px 0 0;
+  border-radius: 8px 8px 0 0;
   line-height: 175%;
   margin: 0;
   padding: 0;
 }
 
 #sidebar-left .menu li.last {
-  border-radius: 0 0 8px 8px;
   -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
   border-top: 1px solid #d8d8d8;
 }
 
@@ -374,8 +379,9 @@ ul.list li {
 }
 
 #sidebar-left .menu li li {
-  border-radius: 0;
   -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
   border-top: 1px solid #d8d8d8;
 }
 
@@ -385,19 +391,22 @@ ul.list li {
 
 #sidebar-left .menu li a:hover {
   background-color: #f0f0f0;
-  border-radius: 0;
   -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 
 #sidebar-left .menu li.first a.active,
 #sidebar-left .menu li.first a:hover {
-  border-radius: 8px 8px 0 0;
   -moz-border-radius: 8px 8px 0 0;
+  -webkit-border-radius: 8px 8px 0 0;
+  border-radius: 8px 8px 0 0;
 }
 
 #sidebar-left .menu li.last a:hover {
-  border-radius: 0 0 8px 8px;
   -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
 }
 
 #sidebar-left .menu li.first li a:hover,
@@ -405,8 +414,9 @@ ul.list li {
 #sidebar-left .menu li.last li a:hover,
 #sidebar-left .menu li li.last a:hover,
 #sidebar-left .menu li li a:hover {
-  border-radius: 0;
   -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 
 #sidebar-left .menu li:first {
@@ -525,8 +535,9 @@ ul.list li {
 #main-wrapper .block.block-views h3,
 .block-nodeblock .spotbox .title {
   background: #444444 url('../images/header-bg.png') repeat-x;
-  border-radius: 8px 8px 0 0;
   -moz-border-radius: 8px 8px 0 0;
+  -webkit-border-radius: 8px 8px 0 0;
+  border-radius: 8px 8px 0 0;
   color: #fff;
   font-weight: normal;
   line-height: 345%;
@@ -653,9 +664,9 @@ ul.list li {
 
 .view-featured-content .views_slideshow_singleframe_pager {
   background-color: #303031;
-  border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
+  border-radius: 4px;
   bottom: 20px;
   display: block;
   float: left;
@@ -671,8 +682,9 @@ ul.list li {
 
 .view-featured-content .views_slideshow_singleframe_pager .pager-item a {
   background-color: #808080;
-  border-radius: 3px;
   -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
   display: block;
   float: left;
   height: 13px;
@@ -730,8 +742,9 @@ ul.list li {
 }
 
 .view-featured-content .link a {
-  border-radius: 8px;
   -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
   display: block;
   height: 225px;
   width: 615px;
@@ -739,8 +752,9 @@ ul.list li {
 
 .view-featured-content .content {
   background: url('../images/background-75.png');
-  border-radius: 0 8px 8px 0;
   -moz-border-radius: 0 8px 8px 0;
+  -webkit-border-radius: 0 8px 8px 0;
+  border-radius: 0 8px 8px 0;
   color: #fff;
   left: 0;
   min-height: 60px;
@@ -818,11 +832,22 @@ ul.list li {
   margin: 0 0 15px;
 }
 
+#event .image-wrapper {
+  position: relative;
+}
+
 #event .date {
+  background: url('../images/background-75.png');
+  -moz-border-radius: 8px 0 0 8px;
+  -webkit-border-radius: 8px 0 0 8px;
+  border-radius: 8px 0 0 8px;
+  bottom: 30px;
   color: #999999;
-  font-size: 90%;
-  float: right;
-  margin: -20px 0 0;
+  font-size: 125%;
+  font-weight: bold;
+  padding: 10px 15px;
+  position: absolute;
+  right: 0;
 }
 
 #event .image {
