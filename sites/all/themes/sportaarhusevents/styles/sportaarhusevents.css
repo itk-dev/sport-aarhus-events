@@ -93,10 +93,11 @@ h1 {
 }
 
 #content {
-  margin: 0 0 0 15px;
+  margin: 0;
 }
 
-#content .node {
+#content .node,
+#content .panel-pane .view {
   color: #666666;
   font-size: 80%;
   margin: 0 0 15px;
@@ -104,6 +105,14 @@ h1 {
 
 .front #content {
   margin: 0 15px 0 0;
+}
+
+#content-inner {
+  margin: 0 0 0 15px;
+}
+
+.front #content-inner {
+  margin: 0;
 }
 
 #sidebar-left,
@@ -403,6 +412,8 @@ ul.list li {
   border-radius: 8px 8px 0 0;
 }
 
+#sidebar-left .menu li.last a:active,
+#sidebar-left .menu li.last a.active,
 #sidebar-left .menu li.last a:hover {
   -moz-border-radius: 0 0 8px 8px;
   -webkit-border-radius: 0 0 8px 8px;
@@ -417,6 +428,12 @@ ul.list li {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
+}
+
+#sidebar-left .menu li.first.last a:hover {
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
 }
 
 #sidebar-left .menu li:first {
@@ -515,7 +532,11 @@ ul.list li {
 
 .block-nodeblock {
   float: left;
-  margin: 0 15px 15px 0;
+  margin: 0;
+}
+
+#content-bottom .block-nodeblock {
+  margin: 0 0 15px 15px;
 }
 
 .block-nodeblock .spotbox * {
@@ -543,13 +564,13 @@ ul.list li {
   line-height: 345%;
   height: 40px;
   margin: 0;
+  text-indent: 15px;
 }
 
 #main-wrapper .block.block-views h3,
 .block-nodeblock .spotbox .title a {
   display: block;
   font-family: 'Nobile', arial, sans-serif;
-  padding: 0 0 0 15px;
 }
 
 .block-nodeblock .spotbox .image {
@@ -580,7 +601,7 @@ ul.list li {
 .block-nodeblock .spotbox .link {
   float: right;
   line-height: 200%;
-  margin: 1px 4px 0 0;
+  margin: 1px 15px 0 0;
   padding: 1px 0 3px 20px;
 }
 
@@ -781,35 +802,31 @@ ul.list li {
   Quotes
 */
 
-#content .block-nodeblock {
-  margin: 0;
-}
-
 .block-nodeblock h3 {
   display: none;
 }
 
 .block-nodeblock .quote,
 #event .quote {
-  background: url('../images/quote.png') no-repeat 45px 45px;
+  background: url('../images/quote.png') no-repeat 35px 45px;
 }
 
 #event .quote {
-  background-position: 25px 15px;
+  background-position: 25px 25px;
 }
 
 .block-nodeblock .quote .content,
 #event .quote .content {
   font-family: 'Neuton', georgia, serif;
   font-size: 95%;
-  padding: 50px 40px 30px 90px;
+  padding: 50px 40px 30px 85px;
   text-align: justify;
 }
 
 #event .quote .content {
   font-size: 110%;
   line-height: 150%;
-  padding: 20px 70px 20px 70px;
+  padding: 30px 70px;
 }
 
 .block-nodeblock .quote .content p,
@@ -828,30 +845,52 @@ ul.list li {
 */
 
 #event {
-  font-size: 80%;
-  margin: 0 0 15px;
+  color: #666666;
+  line-height: 160%;
+  margin: 0 0 25px;
+  position: relative;
 }
 
 #event .image-wrapper {
   position: relative;
 }
 
+#event .title,
 #event .date {
   background: url('../images/background-75.png');
-  -moz-border-radius: 8px 0 0 8px;
-  -webkit-border-radius: 8px 0 0 8px;
-  border-radius: 8px 0 0 8px;
-  bottom: 30px;
-  color: #999999;
-  font-size: 125%;
-  font-weight: bold;
+  -moz-border-radius: 0 8px 8px 0;
+  -webkit-border-radius: 0 8px 8px 0;
+  border-radius: 0 8px 8px 0;
+  top: 20px;
+  left: 0;
   padding: 10px 15px;
   position: absolute;
-  right: 0;
+}
+
+#event .date,
+#event .title h1 {
+  color: #fff;
+}
+
+#event .title h1 {
+  font-size: 175%;
+  font-weight: bold;
+  margin: 0;
+}
+
+#event .date {
+  top: 71px;
+  padding: 5px 15px 5px 10px;
+  left: 0;
+}
+
+#event .date .date-display-start {
+  background: url('../images/sprites.png') no-repeat 0 -109px;
+  padding: 2px 0 2px 28px;
 }
 
 #event .image {
-  margin: 15px 0;
+  margin: 0 0 15px;
 }
 
 /*

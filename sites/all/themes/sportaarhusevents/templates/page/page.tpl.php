@@ -69,10 +69,16 @@
               <?php if ($tabs): ?>
                 <div class="tabs clear-block"><?php print $tabs; ?></div>
               <?php endif; ?>
+              <?php if ($title) {  ?>
+                <h1><?php print $title;?></h1>
+              <?php } ?>
               <?php print $content; ?>
             </div> <!-- /#main-content -->
 
           </div> <!-- // #content-inner -->
+          <?php if ($content_bottom): ?>
+            <div id="content-bottom" class="clear-block"><?php print $content_bottom; ?></div>
+          <?php endif; ?>
         </div> <!-- //#content -->
 
         <?php if ($right && $is_front): ?>

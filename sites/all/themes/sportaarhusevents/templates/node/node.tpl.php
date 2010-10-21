@@ -60,9 +60,6 @@ else{
 //Content
 ?>
 <div<?php print $id_node . $classes; ?>>
-  <?php if ($node->title) {  ?>
-    <h1><?php print $title;?></h1>
-  <?php } ?>
 
   <?php print $content ?>
 

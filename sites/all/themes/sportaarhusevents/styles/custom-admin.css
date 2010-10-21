@@ -13,7 +13,11 @@ div#admin-toolbar .form-button {
 .tabs ul.primary {
   font-size: 75%;
   height: 24px;
-  margin: 10px 0;
+  margin: -39px 0 10px;
+}
+
+.front .tabs ul.primary {
+  margin: 0 0 10px;
 }
 
 #imce-content ul.secondary {

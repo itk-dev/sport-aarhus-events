@@ -10,6 +10,7 @@ regions[header]         = Header
 regions[mainmenu]       = Mainmenu
 regions[left]           = Left sidebar
 regions[content]        = Content
+regions[content_bottom] = Content bottom
 regions[right]          = Right sidebar
 regions[footer_blocks]  = Footer blocks
 regions[footer]         = Footer
