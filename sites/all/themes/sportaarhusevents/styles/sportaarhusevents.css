@@ -841,7 +841,7 @@ ul.list li {
 }
 
 /*
-  Events
+  Event
 */
 
 #event {
@@ -891,6 +891,36 @@ ul.list li {
 
 #event .image {
   margin: 0 0 15px;
+}
+
+/*
+  Event list
+*/
+
+.event-list .row {
+  clear: both;
+  overflow: hidden;
+}
+
+.event-list .title {
+  font-size: 110%;
+}
+
+.event-list .title,
+.event-list .title a {
+  display: block;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.event-list .title a:hover {
+  color: #768718;
+}
+
+.event-list .image {
+  float: left;
+  margin: 5px 0 0;
+  width: 165px;
 }
 
 /*
