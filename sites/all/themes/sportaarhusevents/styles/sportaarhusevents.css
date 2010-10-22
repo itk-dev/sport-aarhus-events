@@ -115,6 +115,11 @@ h1 {
   margin: 0;
 }
 
+#content-top {
+  margin: 0 0 15px;
+  padding: 5px 0 0;
+}
+
 #sidebar-left,
 #sidebar-right {
   margin: 0;
@@ -544,7 +549,10 @@ ul.list li {
   text-decoration: none;
 }
 
-#main-wrapper .block.block-views,
+#main-wrapper .block.block-views {
+  font-size: 75%;
+}
+
 .block-nodeblock .spotbox {
   background-color: #fff;
   font-size: 75%;
@@ -579,7 +587,7 @@ ul.list li {
   padding: 2px 0 0;
 }
 
-#main-wrapper .block.block-views .content,
+#main-wrapper .block.block-views .spotbox.content,
 .block-nodeblock .spotbox .content {
   background: #fff url('../images/gradient-shadow-top-8.png') repeat-x top;
   border-top: 1px solid #c3c2c2;
@@ -659,6 +667,7 @@ ul.list li {
   Featured content
 */
 
+#main-wrapper .view-featured-content,
 .view-featured-content {
   height: 225px;
   overflow: hidden;

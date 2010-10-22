@@ -9,6 +9,7 @@ base theme  = mothership
 regions[header]         = Header
 regions[mainmenu]       = Mainmenu
 regions[left]           = Left sidebar
+regions[content_top] = Content top
 regions[content]        = Content
 regions[content_bottom] = Content bottom
 regions[right]          = Right sidebar

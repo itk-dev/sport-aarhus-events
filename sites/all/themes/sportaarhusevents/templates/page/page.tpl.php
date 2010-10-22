@@ -72,6 +72,11 @@
               <?php if ($title) {  ?>
                 <h1><?php print $title;?></h1>
               <?php } ?>
+
+              <?php if ($content_top): ?>
+                <div id="content-top" class="clear-block"><?php print $content_top; ?></div>
+              <?php endif; ?>
+
               <?php print $content; ?>
             </div> <!-- /#main-content -->
 
