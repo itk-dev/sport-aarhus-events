@@ -898,17 +898,25 @@ ul.list li {
 */
 
 .event-list .row {
+  background: url('../images/gradient-shadow-top-8.png') repeat-x 0 -40px;
+  -moz-border-radius: 8px 8px 0;
+  -webkit-border-radius: 8px 8px 0;
+  border-radius: 8px 8px 0;
   clear: both;
   overflow: hidden;
+  padding: 10px 15px 20px;
+}
+
+.event-list .row:hover {
+  background: url('../images/gradient-shadow-top-8.png') repeat-x 0 -30px;
 }
 
 .event-list .title {
-  font-size: 110%;
+  font-size: 125%;
 }
 
 .event-list .title,
 .event-list .title a {
-  display: block;
   font-weight: bold;
   text-decoration: none;
 }
@@ -917,10 +925,55 @@ ul.list li {
   color: #768718;
 }
 
+.event-list .image-wrapper {
+  position: relative;
+}
+
+.event-list .date {
+  background: url('../images/background-75.png');
+  -moz-border-radius: 0 8px 8px 0;
+  -webkit-border-radius: 0 8px 8px 0;
+  border-radius: 0 8px 8px 0;
+  bottom: 20px;
+  left: 0;
+  position: absolute;
+}
+
+.event-list .date a {
+  color: #fff;
+  display: block;
+  font-size: 85%;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+
+.event-list .date .date-display-single {
+  background: url('../images/sprites.png') no-repeat 0 -170px;
+  padding: 2px 0 2px 20px;
+}
+
 .event-list .image {
   float: left;
   margin: 5px 0 0;
   width: 165px;
+}
+
+.event-list .link a {
+  background: url('../images/sprites.png') no-repeat 0 5px;
+  padding: 0 0 0 11px;
+}
+
+.event-list .link a,
+.event-list .link a:link,
+.event-list .link a:visited {
+  color: #5e5e5e;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.event-list .link a:hover,
+.event-list .link a:active {
+  color: #a5b938;
 }
 
 /*
