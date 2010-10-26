@@ -553,6 +553,10 @@ ul.list li {
   font-size: 75%;
 }
 
+#main-wrapper .block.block-views .block-content {
+  width: 300px;
+}
+
 .block-nodeblock .spotbox {
   background-color: #fff;
   font-size: 75%;
@@ -639,7 +643,8 @@ ul.list li {
   font-size: 95%;
 }
 
-#main-wrapper .block.block-views .content .title span {
+#main-wrapper .block.block-views .content .title span,
+#main-wrapper .block.block-views .content span.icon {
   background: url('../images/sprites.png') no-repeat 1px 5px;
   display: inline-block;
   height: 12px;
@@ -899,6 +904,22 @@ ul.list li {
 #event .image {
   margin: 0 0 15px;
 }
+
+/*
+  Event list block
+*/
+
+#main-wrapper .block.block-views .spotbox.event .image {
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+#main-wrapper .block.block-views .spotbox.event .content a {
+  color: #5e5e5e;
+  font-size: 95%;
+  text-decoration: none;
+}
+
 
 /*
   Event list
