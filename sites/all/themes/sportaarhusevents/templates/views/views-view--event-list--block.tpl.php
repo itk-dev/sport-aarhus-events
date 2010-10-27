@@ -36,13 +36,17 @@
 <?php endif; ?>
 
 <?php if ($rows): ?>
-  <div class="spotbox content">
+  <div class="spotbox event content">
     <?php print $rows; ?>
   </div>
 <?php elseif ($empty): ?>
   <div class="view-empty">
     <?php print $empty; ?>
   </div>
+<?php endif; ?>
+
+<?php if ($footer): ?>
+  <?php print $footer; ?>
 <?php endif; ?>
 
 <!-- /.view -->

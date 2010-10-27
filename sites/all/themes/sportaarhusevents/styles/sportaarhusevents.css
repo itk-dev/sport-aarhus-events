@@ -100,11 +100,7 @@ h1 {
 #content .panel-pane .view {
   color: #666666;
   font-size: 80%;
-  margin: 0 0 15px;
-}
-
-.front #content {
-  margin: 0 15px 0 0;
+  margin: 0 0 20px;
 }
 
 #content-inner {
@@ -517,17 +513,17 @@ ul.list li {
   Language select
 */
 
-#block-languageinterface ul {
+#header .block-languageinterface ul {
   right: 0px;
 }
 
-#block-languageinterface ul li {
+#header .block-languageinterface ul li {
   margin: 0;
   text-align: center;
   width: 65px;
 }
 
-#block-languageinterface .active {
+#header .block-languageinterface .active {
   display: none;
 }
 
@@ -535,13 +531,20 @@ ul.list li {
   Spotboxes, views block
 */
 
-.block-nodeblock {
+.block-nodeblock,
+.block.block-views {
   float: left;
   margin: 0;
 }
 
-#content-bottom .block-nodeblock {
+#content-bottom .block-nodeblock,
+#content-bottom .block.block-views {
   margin: 0 0 15px 15px;
+}
+
+.front #content-bottom .block-nodeblock,
+.front #content-bottom .block.block-views {
+  margin: 0 15px 15px 0;
 }
 
 .block-nodeblock .spotbox * {
@@ -602,6 +605,19 @@ ul.list li {
   padding: 15px;
 }
 
+#main-wrapper .block.block-views .more-link {
+  background: url('../images/sprites.png') no-repeat right 9px;
+  float: right;
+  font-weight: bold;
+  margin: 0 15px 0 0;
+  padding: 0 15px 0 0;
+  text-decoration: none;
+}
+
+#main-wrapper .block.block-views a.more-link:hover {
+  color: #a5b938;
+}
+
 /*
   Spotbox specific
 */
@@ -629,13 +645,14 @@ ul.list li {
 */
 
 #main-wrapper .block.block-views .content .row {
-  border-top: 1px solid #d7d7d7;
-  padding: 15px 0;
+  border-bottom: 1px solid #d7d7d7;
+  overflow: hidden;
+  padding: 10px 0;
 }
 
 #main-wrapper .block.block-views .content .row.first {
-  border: 0;
-  padding: 0 0 15px;
+  overflow: hidden;
+  padding: 0 0 10px;
 }
 
 #main-wrapper .block.block-views .content .created {
@@ -645,10 +662,15 @@ ul.list li {
 
 #main-wrapper .block.block-views .content .title span,
 #main-wrapper .block.block-views .content span.icon {
-  background: url('../images/sprites.png') no-repeat 1px 5px;
+  background: url('../images/sprites.png') no-repeat 1px 6px;
   display: inline-block;
-  height: 12px;
-  width: 12px;
+  height: 15px;
+  width: 15px;
+}
+
+#main-wrapper .block.block-views .content span.icon a {
+  display: block;
+  text-decoration: none;
 }
 
 #main-wrapper .block.block-views .content .title,
@@ -914,12 +936,20 @@ ul.list li {
   margin: 0 10px 0 0;
 }
 
+#main-wrapper .block.block-views .spotbox.event .image a {
+  display: block;
+  height: 40px;
+}
+
 #main-wrapper .block.block-views .spotbox.event .content a {
   color: #5e5e5e;
   font-size: 95%;
   text-decoration: none;
 }
 
+#main-wrapper .block.block-views .spotbox.event .content a:hover {
+  color: #a5b938;
+}
 
 /*
   Event list
