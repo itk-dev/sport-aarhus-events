@@ -212,6 +212,10 @@ h1 {
   padding: 0;
 }
 
+#footer .block ul li {
+  list-style: none;
+}
+
 #footer .block ul,
 #footer .block ul a,
 #footer .block ul a:link,
@@ -264,6 +268,7 @@ ul.menu li,
 ul.list li {
   list-style: none;
   list-style-image: none; /* hide image in IE 7 */
+  padding: 0;
 }
 
 /* Mainmenu */
@@ -1056,4 +1061,66 @@ div.error {
   background-image: url(../images/messages/messages-status.png);
   background-repeat: no-repeat;
   background-position: 5px 5px;
+}
+
+/*
+  Pager
+*/
+
+.pager-wrapper {
+  text-align: center;
+}
+
+.item-list {
+  list-style: none;
+  margin: auto;
+}
+
+.pager.item-list li {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.pager .pager-item a,
+.pager .pager-item a:link,
+.pager .pager-item a:visited
+.pager .pager-first a,
+.pager .pager-first a:link,
+.pager .pager-first a:visited,
+.pager .pager-previous a,
+.pager .pager-previous a:link,
+.pager .pager-previous a:visited,
+.pager .pager-next a,
+.pager .pager-next a:link,
+.pager .pager-next a:visited,
+.pager .pager-last a,
+.pager .pager-last a:link,
+.pager .pager-last a:visited,
+.pager.item-list .pager-current {
+  background-color: #dedede;
+  border: 1px solid #797979;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: #4d4d4d !important;
+  padding: 4px 10px;
+  text-decoration: none !important;
+}
+
+.pager .pager-item a:hover,
+.pager .pager-first a:hover,
+.pager .pager-previous a:hover,
+.pager .pager-next a:hover,
+.pager .pager-last a:hover {
+  background-color: #4d4d4d;
+  color: #fff !important;
+}
+
+.pager.item-list .pager-current {
+  background-color: #4d4d4d;
+  color: #fff !important;
+  *margin: 0 4px 0 0;
+  padding: 4px 10px;
+  *padding: 4px 3px 4px 7px;
 }
