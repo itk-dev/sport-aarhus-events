@@ -64,7 +64,7 @@ dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset {
 
 h1 {
   color: #636363;
-  font-size: 150%;
+  font-size: 175%;
 }
 
 /*
@@ -93,13 +93,14 @@ h1 {
 }
 
 #content {
+  font-size: 85%;
   margin: 0;
 }
 
 #content .node,
 #content .panel-pane .view {
   color: #666666;
-  font-size: 80%;
+  font-size: 85%;
   margin: 0 0 20px;
 }
 
@@ -567,7 +568,7 @@ ul.list li {
 
 .block-nodeblock .spotbox {
   background-color: #fff;
-  font-size: 75%;
+  font-size: 85%;
   min-height: 200px;
   overflow: hidden;
   width: 300px;
@@ -1005,7 +1006,7 @@ ul.list li {
 .event-list .date a {
   color: #fff;
   display: block;
-  font-size: 85%;
+  font-size: 95%;
   padding: 5px 15px;
   text-decoration: none;
 }
@@ -1068,6 +1069,7 @@ div.error {
 */
 
 .pager-wrapper {
+  font-size: 85%;
   text-align: center;
 }
 
@@ -1123,4 +1125,63 @@ div.error {
   *margin: 0 4px 0 0;
   padding: 4px 10px;
   *padding: 4px 3px 4px 7px;
+}
+
+/*
+  News
+*/
+
+#main-content .view-News .view-content .row {
+  border-bottom: 1px solid #e5e5e5;
+  margin: 0 0 20px;
+  overflow: auto;
+  padding: 0 0 10px;
+}
+
+#main-content .view-News .view-content .news-image {
+  margin: 8px 0 0;
+}
+
+#main-content .view-News .view-content .news-image,
+#main-content .view-News .view-content .post-date {
+  float: left;
+}
+
+#main-content .view-News .view-content .post-date {
+  clear: both;
+  font-size: 90%;
+  display: block;
+  text-align: center;
+  width: 125px;
+}
+
+#main-content .view-News .view-content .title,
+#main-content .view-News .view-content .teaser,
+#main-content .view-News .view-content .link {
+  margin: 0 0 0 140px;
+}
+
+#main-content .view-News .view-content .teaser,
+#main-content .view-News .view-content .link {
+}
+
+#main-content .view-News .view-content .title a,
+#main-content .view-News .view-content .title a:link,
+#main-content .view-News .view-content .title a:visited,
+#main-content .view-News .view-content .title a:hover,
+#main-content .view-News .view-content .title a:active {
+  color: #3f3f3f;
+  display: block;
+  margin: 0 0 5px;
+  text-decoration: none;
+  width: 99%;
+}
+
+#main-content .view-News .view-content a,
+#main-content .view-News .view-content a:link,
+#main-content .view-News .view-content a:visited {
+}
+
+#main-content .view-News .view-content a:hover,
+#main-content .view-News .view-content a:active {
 }
