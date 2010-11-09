@@ -36,7 +36,7 @@
 <?php endif; ?>
 
 <?php if ($rows): ?>
-  <div class="spotbox event content">
+  <div class="content<?php print ' '.$css_class ?>">
     <?php print $rows; ?>
   </div>
 <?php elseif ($empty): ?>

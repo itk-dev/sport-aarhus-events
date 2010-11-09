@@ -108,6 +108,10 @@ h1 {
   margin: 0 0 0 15px;
 }
 
+.no-sidebars #content-inner {
+  margin: 0;
+}
+
 .front #content-inner {
   margin: 0;
 }
@@ -123,8 +127,8 @@ h1 {
   margin: 0;
 }
 
-#sidebar-left-inner,
-#sidebar-right-inner {
+#sidebar-left {
+  font-size: 75%;
 }
 
 #footer-blocks {
@@ -370,10 +374,6 @@ ul.list li {
 /*
   Submenu
 */
-
-#sidebar-left {
-  font-size: 75%;
-}
 
 #sidebar-left .menu {
   margin: 0;
@@ -1096,6 +1096,29 @@ ul.list li {
 .event-list .link a:active {
   color: #a5b938;
 }
+
+/*
+  Events 2 column panel
+*/
+
+.panel-2col .panel-col-first {
+  font-size: 120%;
+  width: 300px;
+}
+
+.panel-2col .panel-col-last {
+  width: 630px;
+}
+
+.panel-2col .panel-col-last .panel-pane {
+  margin: 0 0 0 15px;
+}
+
+/*
+  Events submenu
+*/
+
+
 
 /*
   Messages

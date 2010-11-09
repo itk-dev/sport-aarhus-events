@@ -63,7 +63,7 @@
           </div> <!-- //end #sidebar-left-inner -->
         <?php endif; ?>
 
-        <div id="content" class="column <?php $is_front ? print 'grid-10' : print 'grid-11' ?> clear-block">
+        <div id="content" class="column <?php $is_front ? print 'grid-10' : print ns('grid-17', $left, 6) ?> clear-block">
           <div id="content-inner">
             <div id="main-content" class="region">
               <?php if ($tabs): ?>
