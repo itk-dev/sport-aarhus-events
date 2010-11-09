@@ -781,7 +781,7 @@ ul.list li {
   right: 60px;
   outline: 0;
   overflow: hidden;
-  position: relative;
+  position: absolute;
 }
 
 .view-featured-content .views_slideshow_singleframe_pager .pager-item {
