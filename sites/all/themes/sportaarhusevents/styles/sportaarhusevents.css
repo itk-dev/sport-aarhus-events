@@ -1249,6 +1249,10 @@ div.error {
   Sitemap
 */
 
+#site-map .site-map-box {
+  margin: 10px 0;
+}
+
 #site-map .site-map-box ul {
   margin: 0;
   padding: 0;
