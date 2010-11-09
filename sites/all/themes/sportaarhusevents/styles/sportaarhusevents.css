@@ -1244,3 +1244,34 @@ div.error {
 #main-content .view-News .view-content a:hover,
 #main-content .view-News .view-content a:active {
 }
+
+/*
+  Sitemap
+*/
+
+#site-map .site-map-box ul {
+  margin: 0;
+  padding: 0;
+}
+
+#site-map .site-map-box ul ul {
+  padding: 0 0 0 15px;
+}
+
+#site-map .site-map-box h2 {
+  display: none;
+}
+
+#site-map .site-map-box li {
+  list-style: none;
+}
+
+#site-map .site-map-box a {
+  background: url('../images/sprites.png') no-repeat 0 5px;
+  padding: 0 0 0 15px;
+  text-decoration: none;
+}
+
+#site-map .site-map-box a:hover {
+  color: #768718;
+}
