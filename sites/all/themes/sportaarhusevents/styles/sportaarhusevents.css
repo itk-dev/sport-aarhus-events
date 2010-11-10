@@ -375,6 +375,16 @@ ul.list li {
   Submenu
 */
 
+#sidebar-left .group-title {
+  background-color: #979797;
+  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
+  -moz-border-radius: 8px 8px 0 0;
+  -webkit-border-radius: 8px 8px 0 0;
+  border-radius: 8px 8px 0 0;
+  color: #fff;
+  margin: 0;
+}
+
 #sidebar-left .menu {
   margin: 0;
   padding: 0;
@@ -410,6 +420,14 @@ ul.list li {
   position: relative;
 }
 
+#sidebar-left .menu li.collapsed.first.last {
+  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  border: 0;
+}
+
 #sidebar-left .menu li.last a {
   border-top: 1px solid #f7f7f7;
 }
@@ -424,10 +442,21 @@ ul.list li {
 }
 
 #sidebar-left .menu li li.first {
+  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   border-top: 1px solid #d8d8d8;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
+  position: relative;
+}
+
+#sidebar-left .menu li li.first.last {
+  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
+  border-top: 1px solid #d8d8d8;
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  position: relative;
 }
 
 #sidebar-left .menu li li a {
@@ -479,11 +508,27 @@ ul.list li {
   border-radius: 0;
 }
 
+#sidebar-left .menu li li.first.last a,
+#sidebar-left .menu li li.first.last a:hover {
+  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+}
+
 #sidebar-left .menu li.first.last a:hover {
   behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 0 0 8px 8px;
   -webkit-border-radius: 0 0 8px 8px;
   border-radius: 0 0 8px 8px;
+  position: relative;
+}
+
+#sidebar-left .menu li.collapsed.first.last a:hover {
+  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
   position: relative;
 }
 
