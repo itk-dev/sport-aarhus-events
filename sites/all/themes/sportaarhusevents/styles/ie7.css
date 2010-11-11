@@ -2,3 +2,11 @@
   background: url('../images/sprites.png') no-repeat 1px 2px;
   height: 12px;
 }
+
+#sidebar-left .menu {
+  margin: -18px 0 0;
+}
+
+#sidebar-left .menu li.first a {
+  height: 21px;
+}

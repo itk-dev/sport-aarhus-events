@@ -377,7 +377,6 @@ ul.list li {
 
 #sidebar-left .group-title {
   background-color: #979797;
-  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 8px 8px 0 0;
   -webkit-border-radius: 8px 8px 0 0;
   border-radius: 8px 8px 0 0;
@@ -407,26 +406,21 @@ ul.list li {
 }
 
 #sidebar-left .menu li.first {
-  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 8px 8px 0 0;
   -webkit-border-radius: 8px 8px 0 0;
   border-radius: 8px 8px 0 0;
   border: 0;
-  position: relative;
 }
 
 #sidebar-left .menu li.last {
-  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 0 0 8px 8px;
   -webkit-border-radius: 0 0 8px 8px;
   border-radius: 0 0 8px 8px;
   border-top: 1px solid #d8d8d8;
-  position: relative;
 }
 
 #sidebar-left .menu li.leaf.first,
 #sidebar-left .menu li.collapsed.first.last {
-  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
   border-radius: 8px;
@@ -438,32 +432,26 @@ ul.list li {
 }
 
 #sidebar-left .menu li li {
-  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
   border-top: 1px solid #d8d8d8;
-  position: relative;
 }
 
 #sidebar-left .menu li li.first,
 #sidebar-left .menu li li.leaf.first {
-  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   border-top: 1px solid #d8d8d8;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
-  position: relative;
 }
 
 #sidebar-left .menu li li.leaf.first.last,
 #sidebar-left .menu li li.first.last {
-  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   border-top: 1px solid #d8d8d8;
   -moz-border-radius: 0 0 8px 8px;
   -webkit-border-radius: 0 0 8px 8px;
   border-radius: 0 0 8px 8px;
-  position: relative;
 }
 
 #sidebar-left .menu li li.leaf.first a,
@@ -473,20 +461,16 @@ ul.list li {
 
 #sidebar-left .menu li a:hover {
   background-color: #f0f0f0;
-  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
-  position: relative;
 }
 
 #sidebar-left .menu li.first a.active,
 #sidebar-left .menu li.first a:hover {
-  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 8px 8px 0 0;
   -webkit-border-radius: 8px 8px 0 0;
   border-radius: 8px 8px 0 0;
-  position: relative;
 }
 
 #sidebar-left .menu li li.first a.active,
@@ -499,11 +483,9 @@ ul.list li {
 #sidebar-left .menu li.last a:active,
 #sidebar-left .menu li.last a.active,
 #sidebar-left .menu li.last a:hover {
-  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 0 0 8px 8px;
   -webkit-border-radius: 0 0 8px 8px;
   border-radius: 0 0 8px 8px;
-  position: relative;
 }
 
 #sidebar-left .menu li.first li a:hover,
@@ -518,27 +500,22 @@ ul.list li {
 
 #sidebar-left .menu li li.first.last a,
 #sidebar-left .menu li li.first.last a:hover {
-  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 0 0 8px 8px;
   -webkit-border-radius: 0 0 8px 8px;
   border-radius: 0 0 8px 8px;
 }
 
 #sidebar-left .menu li.first.last a:hover {
-  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 0 0 8px 8px;
   -webkit-border-radius: 0 0 8px 8px;
   border-radius: 0 0 8px 8px;
-  position: relative;
 }
 
 #sidebar-left .menu li.leaf.first.last a:hover,
 #sidebar-left .menu li.collapsed.first.last a:hover {
-  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
   border-radius: 8px;
-  position: relative;
 }
 
 #sidebar-left .menu li:first {
