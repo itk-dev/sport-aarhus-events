@@ -984,12 +984,12 @@ ul.list li {
 }
 
 /*
-  Views list
-  Event and sport venues list
+  Views lists
 */
 
 .event-list .row,
-.sport-venues-list .row {
+.sport-venues-list .row,
+.custom-views-list .row {
   background: url('../images/gradient-shadow-top-8.png') repeat-x 0 -40px;
   behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 8px 8px 0;
@@ -1002,34 +1002,42 @@ ul.list li {
 }
 
 .event-list .row:hover,
-.sport-venues-list .row:hover {
+.sport-venues-list .row:hover,
+.custom-views-list .row:hover {
   background: url('../images/gradient-shadow-top-8.png') repeat-x 0 -30px;
 }
 
 .event-list .title,
-.sport-venues-list .title {
+.sport-venues-list .title,
+.custom-views-list .title {
   font-size: 125%;
 }
 
 .event-list .title,
 .sport-venues-list .title,
+.custom-views-list .title,
 .event-list .title a,
-.sport-venues-list .title a {
+.sport-venues-list .title a,
+.custom-views-list .title a {
   font-weight: bold;
   text-decoration: none;
 }
 
 .event-list .title a:hover,
-.sport-venues-list .title a:hover {
+.sport-venues-list .title a:hover,
+.custom-views-list .title a:hover {
   color: #768718;
 }
 
 .event-list .image-wrapper,
-.sport-venues-list .image-wrapper {
+.sport-venues-list .image-wrapper,
+.custom-views-list .image-wrapper,
+.custom-views-list .image-wrapper {
   position: relative;
 }
 
-.event-list .date {
+.event-list .date,
+.custom-views-list .date {
   background: url('../images/background-75.png');
   behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 0 8px 8px 0;
@@ -1040,7 +1048,8 @@ ul.list li {
   position: absolute;
 }
 
-.event-list .date a {
+.event-list .date a,
+.custom-views-list .date a {
   color: #fff;
   display: block;
   font-size: 95%;
@@ -1048,30 +1057,36 @@ ul.list li {
   text-decoration: none;
 }
 
-.event-list .date .date-display-single {
+.event-list .date .date-display-single,
+.custom-views-list .date .date-display-single {
   background: url('../images/sprites.png') no-repeat 0 -170px;
   padding: 2px 0 2px 20px;
 }
 
 .event-list .image,
-.sport-venues-list .image {
+.sport-venues-list .image,
+.custom-views-list .image {
   float: left;
-  margin: 5px 0 0;
-  width: 165px;
+  margin: 5px 15px 0 0;
+  min-height: 110px;
 }
 
 .event-list .link a,
-.sport-venues-list .link a {
+.sport-venues-list .link a,
+.custom-views-list .link a {
   background: url('../images/sprites.png') no-repeat 0 5px;
   padding: 0 0 0 11px;
 }
 
 .event-list .link a,
 .sport-venues-list .link a,
+.custom-views-list .link a,
 .event-list .link a:link,
 .sport-venues-list .link a:link,
+.custom-views-list .link a:link,
 .event-list .link a:visited,
-.sport-venues-list .link a:visited {
+.sport-venues-list .link a:visited,
+.custom-views-list .link a:visited {
   color: #5e5e5e;
   font-weight: bold;
   text-decoration: none;
@@ -1079,8 +1094,10 @@ ul.list li {
 
 .event-list .link a:hover,
 .sport-venues-list .link a:hover,
+.custom-views-list .link a:hover,
 .event-list .link a:active,
-.sport-venues-list .link a:active {
+.sport-venues-list .link a:active,
+.custom-views-list .link a:active {
   color: #a5b938;
 }
 
@@ -1102,10 +1119,46 @@ ul.list li {
 }
 
 /*
-  Events submenu
+  Members page
 */
 
+.node-member .field-image {
+  float: right;
+  margin: 8px 0 0 20px;
+  overflow: hidden;
+}
 
+.node-member .field-link {
+  margin: 10px 0 0;
+}
+
+.node-member .field-link a {
+  background: url('../images/sprites.png') no-repeat 0 5px;
+  padding: 0 0 0 11px;
+}
+
+.node-member .field-link a:visited {
+  color: #5e5e5e;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.node-member .field-link a:hover {
+  color: #a5b938;
+}
+
+/*
+  Members slideshow
+*/
+
+.block .view-members-list.spotbox.content {
+  text-align: center;
+}
+
+.block .view-members-list.spotbox.content div {
+  margin: auto;
+  text-align: center;
+}
 
 /*
   Messages
