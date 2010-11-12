@@ -323,7 +323,7 @@ ul.list li {
   color: #d7d6d6;
 }
 
-#main-menu ul.menu li.active a,
+#main-menu ul.menu li.active-trail a,
 #main-menu ul.menu li a:hover,
 #main-menu ul.menu li a:active {
   color: #fff;
@@ -511,6 +511,7 @@ ul.list li {
   border-radius: 0 0 8px 8px;
 }
 
+#sidebar-left .menu li.leaf.first.last a,
 #sidebar-left .menu li.leaf.first.last a:hover,
 #sidebar-left .menu li.collapsed.first.last a:hover {
   -moz-border-radius: 8px;
