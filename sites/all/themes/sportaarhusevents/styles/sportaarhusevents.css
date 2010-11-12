@@ -1348,3 +1348,11 @@ div.error {
 #site-map .site-map-box a:hover {
   color: #768718;
 }
+
+/*
+  Google Maps
+*/
+
+.node .field-location {
+  margin: 20px 0 0;
+}
