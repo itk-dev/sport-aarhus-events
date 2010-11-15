@@ -607,9 +607,12 @@ ul.list li {
 }
 
 #main-wrapper .block.block-views h3,
+#main-wrapper .block.block-views h3 a,
 .block-nodeblock .spotbox .title a {
+  color: #fff;
   display: block;
   font-family: 'Nobile', arial, sans-serif;
+  text-decoration: none;
 }
 
 .block-nodeblock .spotbox .image {
@@ -883,7 +886,7 @@ ul.list li {
 .block-nodeblock .quote .content,
 #event .quote .content {
   font-family: 'Neuton', georgia, serif;
-  font-size: 95%;
+  font-size: 105%;
   padding: 50px 40px 30px 85px;
   text-align: justify;
 }
@@ -902,7 +905,7 @@ ul.list li {
 .block-nodeblock .quote .content div,
 #event .quote .content div {
   color: #898989;
-  font-size: 90%;
+  font-size: 85%;
 }
 
 /*
