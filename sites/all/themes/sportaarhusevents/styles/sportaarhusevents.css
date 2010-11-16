@@ -98,7 +98,7 @@ h1 {
 }
 
 #content .node,
-#content .panel-pane .view {
+#content .view-content {
   color: #666666;
   font-size: 85%;
   margin: 0 0 20px;
@@ -1267,27 +1267,62 @@ div.error {
   margin: 8px 0 0;
 }
 
-#main-content .view-News .view-content .news-image,
-#main-content .view-News .view-content .post-date {
+#main-content .view-News .view-content .news-image {
   float: left;
 }
 
-#main-content .view-News .view-content .post-date {
-  clear: both;
-  font-size: 90%;
-  display: block;
+#main-content .view-News .view-content .post-date-wrapper {
+  background: url('../images/calendar.png') no-repeat;
+  float: left;
+  margin: 4px 0 0;
+  min-height: 100px;
   text-align: center;
-  width: 125px;
+  width: 90px;
+}
+
+#main-content .view-News .view-content .post-date-wrapper span {
+  margin: auto;
+}
+
+#main-content .view-News .view-content .post-date-wrapper .post-date-inner-wrapper {
+  line-height: 155%;
+}
+
+#main-content .view-News .view-content .post-date-wrapper .post-date-month,
+#main-content .view-News .view-content .post-date-wrapper .post-date-year {
+  color: #fff;
+  font-size: 95%;
+  text-transform: capitalize;
+}
+
+#main-content .view-News .view-content .post-date-wrapper .post-date {
+  color: #575757;
+  font-size: 350%;
+  line-height: 122%;
+  width: 90px;
+}
+
+#main-content .view-News .view-content .title {
+  font-size: 140%;
+  font-weight: bold;
 }
 
 #main-content .view-News .view-content .title,
 #main-content .view-News .view-content .teaser,
 #main-content .view-News .view-content .link {
-  margin: 0 0 0 140px;
+  margin: 0 0 0 100px;
 }
 
-#main-content .view-News .view-content .teaser,
-#main-content .view-News .view-content .link {
+#main-content .view-News .view-content .link a {
+  background: url('../images/sprites.png') no-repeat 0 5px;
+  color: #5e5e5e;
+  font-weight: bold;
+  padding: 0 0 0 11px;
+  text-decoration: none;
+}
+
+#main-content .view-News .view-content .link a:hover {
+  color: #a5b938;
 }
 
 #main-content .view-News .view-content .title a,
