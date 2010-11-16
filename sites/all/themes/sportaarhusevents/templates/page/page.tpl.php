@@ -86,7 +86,7 @@
           <?php endif; ?>
         </div> <!-- //#content -->
 
-        <?php if ($right && $is_front): ?>
+        <?php if ($right): ?>
           <div id="sidebar-right" class="column sidebar region grid-6">
             <div id="sidebar-right-inner">
               <?php print $right; ?>

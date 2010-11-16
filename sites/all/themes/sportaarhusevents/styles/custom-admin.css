@@ -49,3 +49,11 @@ div#admin-toolbar .form-button {
 .page-admin-build-block #blocks {
   clear: both;
 }
+
+/*
+  Context
+*/
+
+.context-editing .ui-sortable {
+  overflow: hidden;
+}

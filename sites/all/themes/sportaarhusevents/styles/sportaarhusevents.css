@@ -89,7 +89,7 @@ h1 {
 
 #main {
   background-color: #fff;
-  padding: 15px 15px 0;
+  padding: 15px 0 0;
 }
 
 #content {
@@ -105,20 +105,17 @@ h1 {
 }
 
 #content-inner {
-  margin: 0 0 0 15px;
-}
-
-.no-sidebars #content-inner {
   margin: 0;
-}
-
-.front #content-inner {
-  margin: 0;
+  padding: 0 15px;
 }
 
 #content-top {
   margin: 0 0 15px;
   padding: 5px 0 0;
+}
+
+#content-bottom {
+  padding: 0 0 0 15px;
 }
 
 #sidebar-left,
@@ -128,7 +125,15 @@ h1 {
 }
 
 #sidebar-left {
-  font-size: 75%;
+  margin: 0 0 0 15px;
+}
+
+#sidebar-right {
+  margin: 0 15px 0 0;
+}
+
+#footer-wrapper {
+  padding: 0 15px;
 }
 
 #footer-blocks {
@@ -376,6 +381,7 @@ ul.list li {
 */
 
 #sidebar-left .menu {
+  font-size: 85%;
   margin: 0;
   padding: 0;
 }
@@ -561,12 +567,12 @@ ul.list li {
 
 #content-bottom .block-nodeblock,
 #content-bottom .block.block-views {
-  margin: 0 0 15px 15px;
+  margin: 0 15px 15px 0;
 }
 
 .front #content-bottom .block-nodeblock,
 .front #content-bottom .block.block-views {
-  margin: 0 15px 15px 0;
+  margin: 15px 15px 15px 0;
 }
 
 .block-nodeblock .spotbox * {
