@@ -1199,6 +1199,7 @@ div.error {
 
 .pager-wrapper {
   font-size: 85%;
+  margin: 0 0 15px;
   text-align: center;
 }
 
@@ -1255,7 +1256,6 @@ div.error {
   color: #fff !important;
   *margin: 0 4px 0 0;
   padding: 4px 10px;
-  *padding: 4px 3px 4px 7px;
 }
 
 /*
