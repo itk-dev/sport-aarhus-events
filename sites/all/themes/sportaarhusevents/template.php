@@ -7,19 +7,37 @@ function sportaarhusevents_preprocess_page(&$vars, $hook) {
     $vars['logo_alt_text'] = (empty($vars['logo_alt_text']) ? variable_get('site_name', '') : $vars['logo_alt_text']);
     $vars['site_logo'] = '<a id="site-logo" href="'. $vars['front_page'] .'" title="'. $vars['logo_alt_text'] .'" rel="home"><img src="'. $vars['logo'] .'" alt="'. $vars['logo_alt_text'] .'" /></a>';
   }
+
+  
 }
 
 /**
  * Add current page to breadcrumb
  */
 function sportaarhusevents_breadcrumb($breadcrumb) {
-  if (!empty($breadcrumb)) {
-    $title = drupal_get_title();
-    if (!empty($title)) {
-      $breadcrumb[]=$title;
-    }
-    return '<div class="breadcrumb">'. implode(' > ', $breadcrumb) .'</div>';
+ 
+  if (drupal_is_front_page()) {
+    return;
   }
+
+  // Add current page onto the end.
+  if (!drupal_is_front_page()) {
+    $item = menu_get_item();
+    $end = end($breadcrumb);
+
+    // Handle panels "not" in menu
+    if (isset($item['access_callback']) && ($item['access_callback'] == 'ctools_access_menu')) {
+      $title = end(split('/', $item['href']));
+      $breadcrumb[] = check_plain($title);
+    }
+    else if ($end && strip_tags($end) !== $item['title']) {
+      $breadcrumb[] = check_plain($item['title']);
+    }
+  }
+
+
+
+  return '<div class="breadcrumb">'. implode(' > ', $breadcrumb) .'</div>';
 }
 
 /**
