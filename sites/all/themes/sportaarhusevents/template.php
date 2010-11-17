@@ -14,10 +14,10 @@ function sportaarhusevents_preprocess_page(&$vars, $hook) {
  */
 function sportaarhusevents_breadcrumb($breadcrumb) {
   if (!empty($breadcrumb)) {
-    $title = drupal_get_title();
-    if (!empty($title) && ($breadcrumb[count($breadcrumb)-1] != $title)) {
-      $breadcrumb[]=$title;
-    }
+    //$title = drupal_get_title();
+    //if (!empty($title)) {
+      //$breadcrumb[]=$title;
+    //}
     return '<div class="breadcrumb">'. implode(' > ', $breadcrumb) .'</div>';
   }
 }
