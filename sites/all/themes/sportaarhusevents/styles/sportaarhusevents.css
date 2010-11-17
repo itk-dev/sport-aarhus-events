@@ -31,6 +31,10 @@ body {
   padding: 0 0 35px;
 }
 
+textarea {
+  font: 100%/150% Verdana, Arial, sans-serif;
+}
+
 a,
 a:link,
 a:visited,
