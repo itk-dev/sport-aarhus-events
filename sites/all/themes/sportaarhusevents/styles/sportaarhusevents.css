@@ -1262,7 +1262,7 @@ div.error {
 }
 
 /*
-  News
+  News list
 */
 
 #main-content .view-News .view-content .row {
@@ -1353,6 +1353,16 @@ div.error {
 
 #main-content .view-News .view-content a:hover,
 #main-content .view-News .view-content a:active {
+}
+
+/*
+  News
+*/
+
+.node .field-newsimage {
+  float: left;
+  margin: 7px 15px 0 0;
+  width: 200px;
 }
 
 /*
