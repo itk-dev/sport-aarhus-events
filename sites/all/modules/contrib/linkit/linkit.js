@@ -1,4 +1,4 @@
-/* $Id: linkit.js,v 1.4 2010/08/02 16:02:54 anon Exp $ */
+/* $Id: linkit.js,v 1.4.2.1 2010/10/22 22:52:21 anon Exp $ */
 
 /*
  * Linkit javascript lib 
@@ -37,6 +37,15 @@ var linkit_helper = {
    */
   openFileBrowser : function () {
     window.open(Drupal.settings.basePath + 'imce?app=Linkit|url@edit-link', '', 'width=760,height=560,resizable=1');
+  },
+  
+  /*
+   * See if the link contains a #anchor
+   */
+  seek_for_anchor : function(href) {
+    var matches = href.match(/internal:.*(#.*)/i);
+    anchor = (matches == null) ? '' : matches[1].substring(1);
+    return anchor;
   }
 }
 

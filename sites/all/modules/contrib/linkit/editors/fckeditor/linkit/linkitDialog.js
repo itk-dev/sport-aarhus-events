@@ -1,4 +1,4 @@
-/* $Id: linkitDialog.js,v 1.2 2010/07/20 22:56:34 anon Exp $ */
+/* $Id: linkitDialog.js,v 1.2.2.1 2010/10/22 23:06:00 anon Exp $ */
 
 var dialog	= window.parent ;
 var oEditor = dialog.InnerDialogLoaded() ;
@@ -23,8 +23,6 @@ if(oEditor.FCK.EditorDocument.selection != null) {
   selection = "" + selection; // now a string again
 }
 
-
-
 $(document).ready(function() {
   $('#edit-cancel, #edit-insert').hide();
   $('*', document).keydown(function(ev) {
@@ -47,6 +45,7 @@ $(document).ready(function() {
     $('#edit-class').val($(oLink).attr('class'));
     $('#edit-rel').val($(oLink).attr('rel'));
     $('#edit-accesskey').val($(oLink).attr('accesskey'));
+    $('#edit-anchor').val(linkit_helper.seek_for_anchor($(oLink).attr('href')));
   } else if(selection == "") {
     // Show help text when there is no selection element
     linkit_helper.show_no_selection_text();
@@ -63,6 +62,13 @@ function Ok() {
 
   var asLinkPath = $('#edit-link').val().match(/(.*)\[path:.*\]/i);
   asLinkPath_text = (asLinkPath == null) ? $('#edit-link').val() : asLinkPath[1].replace(/^\s+|\s+$/g, '');
+
+  // Add anchor if we have any and make sure there is no "#" before adding the anchor
+  var anchor = $('#edit-anchor').val().replace(/#/g,'');
+  if ( anchor.length > 0 ) {
+    linlit_url = linlit_url.concat('#' + anchor);
+    asLinkPath_text = asLinkPath_text.concat('#' + anchor);
+  }
 
   if ( linlit_url.length == 0 ) {
     alert(Drupal.t('No URL'));

@@ -1,4 +1,4 @@
-/* $Id: linkit.css,v 1.1.2.3 2010/08/03 09:02:04 anon Exp $ */
+/* $Id: linkit.css,v 1.1.2.4 2010/10/22 22:51:37 anon Exp $ */
 
 body#linkit { padding:1em; }
 
@@ -14,12 +14,7 @@ body#linkit { padding:1em; }
   float:left;
 }
 
-#linkit .collapsible .form-item { width:45%; }
-#linkit .collapsible .form-item .form-text { width:100%; }
-#linkit .collapsible .form-item  { float:left; }
-
-#linkit #edit-id-wrapper,
-#linkit #edit-rel-wrapper { margin-left:2em; }
+#edit-link-wrapper .description { clear:both; }
 
 span.throbber {
   height: 15px;

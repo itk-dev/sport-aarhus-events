@@ -1,4 +1,4 @@
-// $Id: linkit.js,v 1.6 2010/07/20 22:56:34 anon Exp $
+// $Id: linkit.js,v 1.6.2.1 2010/10/22 22:52:21 anon Exp $
 
 var LinkitDialog = {
 	init : function() {
@@ -13,6 +13,8 @@ var LinkitDialog = {
       $('#edit-class').val($(e).attr('class'));
       $('#edit-rel').val($(e).attr('rel'));
       $('#edit-accesskey').val($(e).attr('accesskey'));
+      $('#edit-anchor').val(linkit_helper.seek_for_anchor($(e).attr('href')));
+      return false;
 		} else if(ed.selection.isCollapsed()) {
       // Show help text when there is no selection element
       linkit_helper.show_no_selection_text();
@@ -41,7 +43,13 @@ var LinkitDialog = {
 		
     var matches = $('#edit-link').val().match(/\[path:(.*)\]/i);
     href = (matches == null) ? $('#edit-link').val() : matches[1];
-  
+    
+    // Add anchor if we have any and make sure there is no "#" before adding the anchor
+    var anchor = $('#edit-anchor').val().replace(/#/g,'');
+    if(anchor.length > 0) {
+      href = href.concat('#' + anchor);
+    }
+
     var link_text_matches = $('#edit-link').val().match(/(.*)\[path:.*\]/i);
     link_text = (link_text_matches == null) ? $('#edit-link').val() : link_text_matches[1].replace(/^\s+|\s+$/g, '');
     

@@ -1,4 +1,4 @@
-; $Id: README.txt,v 1.8 2010/07/04 22:25:02 anon Exp $
+; $Id: README.txt,v 1.8.2.2 2010/10/31 16:37:27 anon Exp $
 
 -- INTRODUCTION --
 
@@ -14,23 +14,32 @@ See http://drupal.org/project/linkit for more information
 
 -- INSTALLATION --
 
- 1. Install and enable Linkit's dependencies (see below). Make sure
-    Path Filter OR Pathologic is enabled on the input formats you intend to use with linkit
- 2. Install and enable linkit (required) and at least one of linkit_node,
+ 1. Install and enable linkit and at least one of linkit_node,
     linkit_views, linkit_taxonomy or linkit_user
- 3. Enable the Linkit button in your WYSIWYG editor's settings
- 4. If you are using stand alone CKEditor or stand alone FCKeditor, there is some more installation information
-    in each editor dir. 
+ 2. Enable the Linkit button in your WYSIWYG editor's settings
+ 3. If you are using stand alone CKEditor or stand alone FCKeditor, there is 
+    some more installation information in each editor dir. 
       * CKEditor (/sites/all/modules/linkit/editors/ckeditor/README.txt)
       * FCKeditor (/sites/all/modules/linkit/editors/fckeditor/README.txt)
 
+
 -- DEPENDENCIES --
 
-Path Filter <http://drupal.org/project/pathfilter> OR Pathologic <http://drupal.org/project/pathologic>
-One of these editors:
- * WYSIWYG <http://drupal.org/project/wysiwyg> with TinyMCE or CKEditor or FCKeditor  (recommended)
+Linkit dont have any "real" dependencies, but without these modules you dont 
+get the fully functionality.
+
+To begin, we need an editor. Linkit supports all of these editors:
+ * WYSIWYG <http://drupal.org/project/wysiwyg> with TinyMCE or CKEditor
+   or FCKeditor  (recommended)
  * CKEditor <http://drupal.org/project/ckeditor>
  * FCKeditor <http://drupal.org/project/fckeditor>
+
+Linkit creates internal links with the "internal:" prefix. To make your site 
+understand these links, you have to install _ONE_ of these modules.
+* Path Filter <http://drupal.org/project/pathfilter> 
+* Pathologic <http://drupal.org/project/pathologic>
+
+Make sure Path Filter OR Pathologic is enabled on the input formats you intend to use with linkit
 
 -- CONFIGURATION --
 
@@ -121,6 +130,3 @@ function MYMODULETYPE_linkit_get_search_styled_link($string) {
 -- MAINTAINERS --
 
  * anon <http://drupal.org/user/464598>
- * betamos <http://drupal.org/user/442208>
- * blackdog <http://drupal.org/user/110169>
- * freakalis <http://drupal.org/user/204187>

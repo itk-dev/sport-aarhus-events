@@ -1,5 +1,5 @@
 <?php
-// $Id: linkit-dashboard.tpl.php,v 1.1.2.3 2010/08/27 16:56:03 anon Exp $
+// $Id: linkit-dashboard.tpl.php,v 1.1.2.4 2010/10/24 00:46:49 anon Exp $
 
 /**
  * @file
@@ -23,6 +23,5 @@
     <h1><?php print t('Insert internal or external link'); ?></h1>
     <?php print $content; ?>
   </div>
-  <?php print $closure; ?>
 </body>
 </html>

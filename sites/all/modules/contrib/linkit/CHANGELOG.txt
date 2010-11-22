@@ -1,5 +1,24 @@
-// $Id: CHANGELOG.txt,v 1.38.2.5 2010/09/15 21:43:18 anon Exp $
+// $Id: CHANGELOG.txt,v 1.38.2.18 2010/10/31 16:09:59 anon Exp $
 Linkit x.x-x.x, xxxx-xx-xx
+
+Linkit 6.x-1.7, xxxx-xx-xx
+------------------------------
+Changed by anon: Changed mainterns in README.txt
+#855436, #939448, #941320 Fixed by anon: Installation problems when both 
+  Pathfilter and Pathologic was missing. 
+#946092 by anon: Display the book a node belong to in the autocomplete list
+#947726 by anon: Display the conent-type name insead of content-type type
+Changed by anon: Removed some CSS styles to make the dashboard more like the 
+  default theme
+#906476 by anon: Added ability to add an #anchor via the attributes section
+Added by anon: Message via drupal_set_message when Pathfilter and Pathologic 
+  is not installed
+by anon: Added description to Linkit settings menu callback
+by anon: Fixed some "PHP notice: Undefined index
+#942798 by anon: Added settings for which content types should appear in the
+  suggestions
+#953454 by anon: change callback from linkit_dashboard to linkit_dashboard_page
+#955356 by blixxxa: Added Swedish translation
 
 Linkit 6.x-1.6, 2010-09-15
 ------------------------------
