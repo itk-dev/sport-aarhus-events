@@ -14,3 +14,7 @@
 #sidebar-left .menu li.first a {
   height: 21px;
 }
+
+.view-featured-content .content {
+  behavior: none;
+}

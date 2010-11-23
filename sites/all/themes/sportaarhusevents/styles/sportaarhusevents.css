@@ -772,13 +772,18 @@ ul.list li {
   position: absolute;
 }
 
+.view-featured-content .views_slideshow_slide {
+  height: 225px;
+  position: relative;
+  width: 615px;
+}
+
 .view-featured-content .views_slideshow_singleframe_pager .pager-item {
   padding: 0;
 }
 
 .view-featured-content .views_slideshow_singleframe_pager .pager-item a {
   background-color: #808080;
-  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -786,7 +791,6 @@ ul.list li {
   float: left;
   height: 13px;
   margin: 10px 10px 10px 0;
-  position: relative;
   text-indent: -9999px;
   width: 13px;
 }
@@ -836,6 +840,7 @@ ul.list li {
 
 .view-featured-content .link {
   left: 0;
+  position: absolute;
   top: 0;
 }
 
@@ -866,10 +871,15 @@ ul.list li {
 }
 
 .view-featured-content .content a {
+  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
+  -moz-border-radius: 0 8px 8px 0;
+  -webkit-border-radius: 0 8px 8px 0;
+  border-radius: 0 8px 8px 0;
   color: #fff;
   display: block;
   font-size: 170%;
   padding: 10px;
+  position: relative;
   text-decoration: none;
   text-transform: uppercase;
 }
