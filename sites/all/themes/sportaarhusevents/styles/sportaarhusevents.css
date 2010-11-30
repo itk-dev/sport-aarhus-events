@@ -71,6 +71,10 @@ h1 {
   font-size: 175%;
 }
 
+#content .node ul {
+  margin: 15px 25px;
+}
+
 /*
   Containers
 */
