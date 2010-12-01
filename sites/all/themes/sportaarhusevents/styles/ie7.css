@@ -18,3 +18,9 @@
 .view-featured-content .content {
   behavior: none;
 }
+
+#main-wrapper .block.block-block h3,
+#main-wrapper .block.block-views h3,
+.block-nodeblock .spotbox .title {
+  width: 300px;
+}
