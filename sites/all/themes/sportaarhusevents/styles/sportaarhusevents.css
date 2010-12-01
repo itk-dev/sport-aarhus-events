@@ -571,17 +571,20 @@ ul.list li {
 */
 
 .block-nodeblock,
+.block-block,
 .block.block-views {
   float: left;
-  margin: 0;
+  margin: 0 0 15px;
 }
 
 #content-bottom .block-nodeblock,
+#content-bottom .block-block,
 #content-bottom .block.block-views {
   margin: 0 15px 15px 0;
 }
 
 .front #content-bottom .block-nodeblock,
+.front #content-bottom .block-block,
 .front #content-bottom .block.block-views {
   margin: 15px 15px 15px 0;
 }
@@ -591,6 +594,7 @@ ul.list li {
   text-decoration: none;
 }
 
+#main-wrapper .block.block-block,
 #main-wrapper .block.block-views {
   font-size: 85%;
 }
@@ -607,6 +611,7 @@ ul.list li {
   width: 300px;
 }
 
+#main-wrapper .block.block-block h3,
 #main-wrapper .block.block-views h3,
 .block-nodeblock .spotbox .title {
   background: #444444 url('../images/header-bg.png') repeat-x;
@@ -623,7 +628,9 @@ ul.list li {
   text-indent: 15px;
 }
 
+#main-wrapper .block.block-block h3,
 #main-wrapper .block.block-views h3,
+#main-wrapper .block.block-block h3 a,
 #main-wrapper .block.block-views h3 a,
 .block-nodeblock .spotbox .title a {
   color: #fff;
@@ -639,6 +646,7 @@ ul.list li {
 }
 
 #main-wrapper .block.block-views .spotbox.content,
+#main-wrapper .block.block-block .block-content,
 .block-nodeblock .spotbox .content {
   background: #fff url('../images/gradient-shadow-top-8.png') repeat-x top;
   border-top: 1px solid #c3c2c2;
@@ -647,6 +655,11 @@ ul.list li {
   margin: 0;
   min-height: 45px;
   padding: 15px;
+}
+
+#main-wrapper .block.block-block .block-content {
+  border: 0;
+  padding: 0;
 }
 
 #main-wrapper .block.block-views .more-link {
