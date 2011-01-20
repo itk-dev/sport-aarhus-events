@@ -47,6 +47,10 @@ a:hover {
   text-decoration: none;
 }
 
+.node p {
+  margin: 15px 0;
+}
+
 p {
   margin: 0;
 }
