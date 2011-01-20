@@ -19,9 +19,9 @@ project = "languageinterface"
 datestamp = "1235080854"
 
 
-; Information added by drupal.org packaging script on 2010-04-01
-version = "6.x-2.5"
+; Information added by drupal.org packaging script on January 1, 1970 - 00:00
+version = "6.x-3.5"
 core = "6.x"
 project = "languageinterface"
-datestamp = "1270080019"
+datestamp = "1295455306"
 
