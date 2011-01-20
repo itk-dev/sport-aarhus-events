@@ -6,6 +6,7 @@
  */
 
 function mothership_menu_tree($tree) {
+
   if (theme_get_setting('mothership_cleanup_menu_baseclass')) {
     return '<!--menu-->' . "\n" . '  <ul class="menu">' . "\n" . $tree . '  </ul>' . "\n  <!--/menu-->\n" ;
   }
@@ -34,7 +35,8 @@ function mothership_menu_item($link, $has_children, $menu = '', $in_active_trail
     if ($in_active_trail AND theme_get_setting('mothership_cleanup_menu_classes_active')) {
       $class .= ' active-trail';
     }
-
+    
+    
     if ($class) {
       return '    <li class="'. $class .'">'. $link . $menu ."</li>\n";
     }
@@ -59,7 +61,7 @@ function mothership_menu_local_task($link, $active = FALSE) {
 function mothership_links($links, $attributes = array('class' => 'links')) {
 // dsm($links);
   $output = '';
-
+  
   if (count($links) > 0) {
     if (theme_get_setting('mothership_cleanup_links_baseclass')) {
       $output = '  <ul'. drupal_attributes($attributes) .'>';

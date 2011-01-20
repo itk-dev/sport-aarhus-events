@@ -27,7 +27,7 @@ if ($classes) {
       <h3><?php print $title ?></h3>
     <?php } ?>
 
-	  <div class="comment-content"><?php print $content ?></div>
+	  <div class="content"><?php print $content ?></div>
     <?php print $links ?>    
 	</div>
 

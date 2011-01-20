@@ -75,7 +75,9 @@ function mothership_fieldset($element) {
     if (!isset($element['#attributes']['class'])) {
       $element['#attributes']['class'] = '';
     }
-
+    //adds the name of the fieldset to the class
+     $element['#attributes']['class'] .= ' '.mothership_id_safe($element['#title']);
+      
     $element['#attributes']['class'] .= ' collapsible';
     if (!empty($element['#collapsed'])) {
       $element['#attributes']['class'] .= ' collapsed';

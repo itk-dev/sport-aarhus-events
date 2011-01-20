@@ -17,12 +17,18 @@ function mothership_preprocess_views_view_unformatted(&$vars) {
   // Set up striping values.
   foreach ($rows as $id => $row) {
 
+
+    if (theme_get_setting(mothership_cleanup_views_row_identify_single)) {
+      $vars['classes'][$id] = 'views-row ';  
+    }
+
+
     if (theme_get_setting(mothership_cleanup_views_row_count)) {
       if (theme_get_setting(mothership_cleanup_views_row_identify)) {
-        $vars['classes'][$id] = 'views-row-' . ($id + 1);            
+        $vars['classes'][$id] .= 'views-row-' . ($id + 1);            
       }
       else{
-        $vars['classes'][$id] = 'row-' . ($id + 1);  
+        $vars['classes'][$id] .= 'row-' . ($id + 1);  
       }
     }
 
@@ -60,6 +66,9 @@ function mothership_preprocess_views_view_unformatted(&$vars) {
 /**
  * Display a view as a table style.
  */
+/**
+ * Display a view as a table style.
+ */
 function mothership_preprocess_views_view_table(&$vars) {
   $view     = $vars['view'];
 
@@ -67,8 +76,8 @@ function mothership_preprocess_views_view_table(&$vars) {
   // However, the template also needs to use for the rendered fields.  We
   // therefore swap the raw data out to a new variable and reset $vars['rows']
   // so that it can get rebuilt.
- // $result   = $vars['rows']; http://drupal.org/node/348190#comment-1451822
-  $result = $view->result;
+  // Store rows so that they may be used by further preprocess functions.
+  $result   = $vars['result'] = $vars['rows'];
   $vars['rows'] = array();
 
   $options  = $view->style_plugin->options;
@@ -87,13 +96,7 @@ function mothership_preprocess_views_view_table(&$vars) {
 
   // Fields must be rendered in order as of Views 2.3, so we will pre-render
   // everything.
-  $renders = array();
-  $keys = array_keys($view->field);
-  foreach ($result as $count => $row) {
-    foreach ($keys as $id) {
-      $renders[$count][$id] = $view->field[$id]->theme($row);
-    }
-  }
+  $renders = $handler->render_fields($result);
 
   foreach ($columns as $field => $column) {
     // render the header labels
@@ -154,6 +157,7 @@ function mothership_preprocess_views_view_table(&$vars) {
       }
     }
   }
+
   //rows classes
 
   foreach ($vars['rows'] as $num => $row) {
@@ -178,8 +182,6 @@ function mothership_preprocess_views_view_table(&$vars) {
     $vars['class'] .= " sticky-enabled";
   }
 }
-
-
 
 function mothership_content_view_multiple_field($items, $field, $values) {
   $output = '';

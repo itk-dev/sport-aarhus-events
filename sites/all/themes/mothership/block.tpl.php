@@ -20,8 +20,9 @@ if ($id_block) {
 
 <div<?php print $id_block . $classes; ?>>
 <?php if ($block->subject): ?>
-  <h3><?php print $block->subject; ?></h3>
+  <h3 class="title"><?php print $block->subject; ?></h3>
 <?php endif; ?>
   <?php print $block->content; ?>
   <?php  print $edit_links; ?>
 </div>
+

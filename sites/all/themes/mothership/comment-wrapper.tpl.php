@@ -16,6 +16,9 @@ if ($id_commentwrap) {
 ?>
 <!--comment-wrapper.tpl-->
 <?php if ($content) { ?>
+
+
+
 <div<?php print $id_commentwrap . $classes; ?>>
   <?php print $content; ?>
 </div>

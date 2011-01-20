@@ -26,26 +26,27 @@
  */
 ?>
 
+<!--content-field.tpl-->
 <?php if (!$field_empty) : ?>
-<div class="<?php print $field_name_css ?>">
-
+<div class="field-type-<?php print $field_type_css ?> <?php print $field_name_css ?>">
   <?php if ($label_display == 'above') : ?>
     <span><?php print t($label) ?>:&nbsp;</span>
   <?php endif;?>
 
-    <?php $count = 1;
-    foreach ($items as $delta => $item) :
-      if (!$item['empty']) : ?>
+  <?php $count = 1;
+  foreach ($items as $delta => $item) :
+    if (!$item['empty']) : ?>
+      <?php if ($label_display == 'inline') { ?>
+        <?php print t($label) ?>
+      <?php } ?>
 
-          <?php if ($label_display == 'inline') { ?>
-              <?php print t($label) ?>
-          <?php } ?>
+      <?php print $item['view'] ?>
 
-          <?php print $item['view'] ?>
-
-      <?php $count++;
+    <?php $count++;
       endif;
-    endforeach;?>
+    endforeach;
+    ?>
 
 </div>
+<!--/content-field.tpl-->
 <?php endif;

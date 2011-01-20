@@ -10,6 +10,7 @@
  * http://api.drupal.org/api/file/modules/system/page.tpl.php
  * -------------------------------------
  * page vars dsm(get_defined_vars())
+ * //dsm($template_files);
  * -------------------------------------
  * <?php print $base_path; ?>
  * <?php print $is_front ?>
@@ -20,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>">
 <!--
   mothership FTW
-  http://drupal.org/projects/moshpit
+  http://drupal.org/projects/mothership
 -->
 <head>
   <title><?php print $head_title; ?></title>
@@ -54,7 +55,7 @@
 
 </div>
 <div class="body clearfix">
-  <div class="left">
+  <div class="sitebar-first">
     <?php if ($left) { ?>
       <?php print $left; ?>
     <?php } ?>
@@ -70,12 +71,12 @@
         <?php print $tabs; ?>
       <?php }; ?>
 
-      <?php if ($title AND (arg(0) != "node")) {  ?><h1><?php print $title; ?></h1><?php } ?>
+      <?php if ($title AND (arg(0) != "node")) {  ?><h2><?php print $title; ?></h2><?php } ?>
 
       <?php print $content; ?>
 
   </div>
-  <div class="right">
+  <div class="sitebar-last">
     <?php if ($right) { ?>
       <?php print $right; ?>
     <?php } ?>

@@ -16,8 +16,14 @@
  * dsm($node);
  * dsm($node->content);
  * print $FIELD_NAME_rendered;
+ * print node->content['body']['#value'];
+ * 
+ *------ safe ways
+ * print check_plain($node->title);
+ * print check_plain($node->content['field_testfield']['#value']); // for plain textfields
+ * print $node->field_testfield[0]['safe']; // If it has an input format
+ *truncate_utf8($string, $len, $wordsafe = FALSE, $dots = FALSE)
  */
-
 /**
  * $links splitted up
  * <?php print $statistics_counter; ?>
@@ -51,9 +57,7 @@ if ($page == 0) { ?>
     <?php if ($node->picture) { ?>
         <?php print theme('imagecache', 'preset_namespace', $node->picture, $alt, $title, $attributes); ?>
     <?php } ?>
-
       <?php print theme('username', $node); ?>
-
       <?php print format_date($node->created, 'custom', "j F Y") ?>
   </div>
 
@@ -72,33 +76,34 @@ if ($page == 0) { ?>
 else{
 //Content
 ?>
+<?php// dsm($node); ?>
 <div<?php print $id_node . $classes; ?>>
-  <?php if ($node->title) {  ?>
-    <h1><?php print $title;?></h1>
-  <?php } ?>
 
   <div class="meta">
     <?php if ($picture) { ?>
       <?php print $picture; ?>
     <?php } ?>
-
-    <?php print theme('username', $node); ?>
-
-    <?php print format_date($node->created, 'custom', "j F Y") ?>
-
+    <span class="user"><?php print theme('username', $node); ?></span>
+    <span class="date"><?php print format_date($node->created, 'custom', "j F Y") ?></span>
+  </div>
+  <div class="terms">
     <?php if (count($taxonomy)) { ?>
        <?php print $terms ?>
     <?php } ?>
+  </div>  
+  
+  <div class="content">
+    <?php print $content ?>
   </div>
-
-  <?php print $content ?>
 
   <?php print $node_region_two;?>
 
   <?php print $node_region_one;?>
 
   <?php if ($links) { ?>
-    <?php  print $links; ?>
+    <div class="nodelinks">
+      <?php  print $links; ?>      
+    </div>
   <?php } ?>
 </div>
 <?php }

@@ -80,7 +80,7 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()) {
     '#type'          => 'fieldset',
     '#title'         => t('body classes (page.tpl)'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
   );
 
   $form['cleanup']['body']['mothership_cleanup_body_remove'] = array(
@@ -164,6 +164,12 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()) {
     '#title'         => t('admin module active:  .adminmenu'),
     '#default_value' => $settings['mothership_cleanup_body_admin'],
   );
+
+  $form['cleanup']['body']['mothership_cleanup_body_add_nid'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('add node id class nid-[n]'),
+    '#default_value' => $settings['mothership_cleanup_body_add_nid'],
+  );
   
 
 
@@ -172,7 +178,7 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()) {
     '#type'          => 'fieldset',
     '#title'         => t('node.tpl'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
   );
 
   $form['cleanup']['node']['mothership_cleanup_node_node'] = array(
@@ -230,7 +236,7 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()) {
     '#type'          => 'fieldset',
     '#title'         => t('block.tpl'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
   );
 
 
@@ -294,7 +300,7 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()) {
     '#type'          => 'fieldset',
     '#title'         => t('comments'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
   );
 
   $form['cleanup']['comment']['mothership_cleanup_comment_comment'] = array(
@@ -366,19 +372,56 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()) {
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
   );
+
+  //display
+  $form['views']['display'] = array(
+    '#type'          => 'fieldset',
+    '#title'         => t('Display'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+
+  $form['views']['display']['mothership_cleanup_views_display_view'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('add .view - This is needed for the hover admin links '),
+    '#default_value' => $settings['mothership_cleanup_views_display_view'],
+  );
+
+  $form['views']['display']['mothership_cleanup_views_display_cssname'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('add .view-$css_name'),
+    '#default_value' => $settings['mothership_cleanup_views_display_cssname'],
+  );
+
+  $form['views']['display']['mothership_cleanup_views_display_name'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('add view-id-.$name'),
+    '#default_value' => $settings['mothership_cleanup_views_display_name'],
+  );
+
+  $form['views']['display']['mothership_cleanup_views_display_display_id'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('add view-display-id-.$display_id'),
+    '#default_value' => $settings['mothership_cleanup_views_display_display_id'],
+  );
+
+  $form['views']['display']['mothership_cleanup_views_display_dom_id'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('add view-dom-id-$dom_id'),
+    '#default_value' => $settings['mothership_cleanup_views_display_dom_id'],
+  );
+
+
+
   //list
   $form['views']['list'] = array(
     '#type'          => 'fieldset',
     '#title'         => t('List'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
   );
 
-  $form['views']['list']['mothership_cleanup_views_row_identify'] = array(
-    '#type'          => 'checkbox',
-    '#title'         => t('views-row prefix to the classes:  (.views-row-first/.views-row-last, .views-row-[count], .views-row-odd/.views-row-even '),
-    '#default_value' => $settings['mothership_cleanup_views_row_identify'],
-  );
+
 
   $form['views']['list']['mothership_cleanup_views_first_last'] = array(
     '#type'          => 'checkbox',
@@ -399,13 +442,25 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()) {
     '#default_value' => $settings['mothership_cleanup_views_row_count'],
   );
 
+  $form['views']['list']['mothership_cleanup_views_row_identify'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('adds a "views-row" prefix (.views-row-first/.views-row-last, .views-row-[count], .views-row-odd/.views-row-even '),
+    '#default_value' => $settings['mothership_cleanup_views_row_identify'],
+  );
+
+  $form['views']['list']['mothership_cleanup_views_row_identify_single'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('add a "views-row" class to the list'),
+    '#default_value' => $settings['mothership_cleanup_views_row_identify_single'],
+  );
+
 
   //tables
   $form['views']['table'] = array(
     '#type'          => 'fieldset',
     '#title'         => t('Tables'),
     '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
+    '#collapsed' => TRUE,
   );
 
   $form['views']['table']['mothership_cleanup_views_table_first_last'] = array(

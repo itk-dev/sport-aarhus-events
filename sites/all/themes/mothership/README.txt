@@ -29,6 +29,8 @@ I know its not the best way but it will all be changed in D7.
 
 Theres an example theme called msdroid that have these settings predefined 
 
+You dont need to activate the mothership to use it in other themes :)
+
 ----------------------------------------
   Theme settings
 ----------------------------------------

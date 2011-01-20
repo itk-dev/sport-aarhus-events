@@ -20,10 +20,38 @@
  *
  * @ingroup views_templates
  */
+ 
 ?>
 
+<?php
+
+$view_classes =array();
+if (theme_get_setting(mothership_cleanup_views_display_view)) {
+  $view_classes[] = "view";  
+}
+if (theme_get_setting(mothership_cleanup_views_display_cssname)) {
+  $view_classes[] = "view-" .$css_name."";
+}
+if (theme_get_setting(mothership_cleanup_views_display_name)) {
+  $view_classes[] = "view-id-" .$name."";
+}
+if (theme_get_setting(mothership_cleanup_views_display_display_id)) {
+  $view_classes[] = "view-display-id-" .$display_id."";
+}
+if (theme_get_setting(mothership_cleanup_views_display_dom_id)) {
+  $view_classes[] = "view-dom-id-" .$dom_id."";
+}
+
+  $view_classes[] = "" .$css_class.""; 
+//skinr support
+$view_classes[] = $skinr;
+  
+$classes_display = implode(" ", $view_classes);
+?>
+
+
 <!--views-view.tpl.php-->
-<div class="view view-<?php print $css_name; ?> <?php print $skinr; ?>"> <?php /* we need the view class for the admin hover */ ?>
+<div class="<?php print $classes_display; ?>"> <?php /* remember we need the view class for the admin hover */ ?>
 
 <?php if ($admin_links): ?>
   <!--views admin links-->
@@ -50,10 +78,12 @@
   <div class="attachment-before">
     <?php print $attachment_before; ?>
   </div>
-
 <?php endif; ?>
+
 <?php if ($rows): ?>
-  <?php print $rows; ?>
+  <div class="view-content">
+    <?php print $rows; ?>
+  </div>  
 <?php elseif ($empty): ?>
   <div class="view-empty">
     <?php print $empty; ?>

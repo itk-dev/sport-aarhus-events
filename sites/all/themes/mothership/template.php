@@ -135,8 +135,17 @@ function mothership_preprocess(&$vars, $hook) {
       $body_classes[] = "adminmenu";
     }
 
+    //node id
+    if(theme_get_setting('mothership_cleanup_body_add_nid')){
+      $body_classes[] = 'nid-'. $vars['node']->nid;      
+    }
+
+
+
+
     $vars['body_classes'] = implode(' ', $body_classes); // Concatenate with spaces
-//    kpr($vars['body_classes']);
+
+    //kpr($vars['body_classes']);
     // ** ------------------------------------------------------------------------ **
     // style sheets load order & ie fix
     // kudos to al-steffen for figuring this out :)
@@ -363,6 +372,12 @@ function mothership_preprocess(&$vars, $hook) {
     if( module_exists(skinr) ) {
         $classes[] = $vars['skinr'];
     }
+
+    //context block classes
+    if( module_exists(context_block_class) ) {
+        $classes[] = $vars['context_block_classes'];
+    }
+    
 
     // Render block classes.
     $vars['classes'] = implode(' ', $classes);

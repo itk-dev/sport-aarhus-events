@@ -194,3 +194,36 @@ function mothership_admin_menu_item_link($link) {
   $link['title'] .= !empty($link['description']) ? "<span class='menu-description'>{$link['description']}</span>" : '';
   return l($link['title'], $link['href'], $link['localized_options']);
 }
+
+
+/*
+* removes those filter tips once and for all ...
+* TODO add an option for this in theme settings
+*/
+function mothership_filter_tips($tips, $long = FALSE, $extra = '') {
+  return '';
+}
+function mothership_filter_tips_more_info () {
+  return '';
+}
+
+
+
+/**
+ * Ensure messages are always lists (even when there is only one single message).
+ *  originak code form http://teddy.fr/blog/theming-almost-hidden
+ */
+function mothership_status_messages($display = NULL) {
+  $output = '';
+  foreach (drupal_get_messages($display) as $type => $messages) {
+    $output .= "<div class=\"messages $type\">\n";
+    $output .= " <ul>\n";
+    foreach ($messages as $message) {
+      $output .= '  <li>'. $message ."</li>\n";
+    }
+    $output .= " </ul>\n";
+    $output .= "</div>\n";
+  }
+  return $output;
+}
+
