@@ -62,6 +62,10 @@ ul,
   padding: 0;
 }
 
+#main-content ul {
+  margin: 15px;
+}
+
 td {
   vertical-align: top;
 }
