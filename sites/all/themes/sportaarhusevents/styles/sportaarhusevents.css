@@ -498,7 +498,7 @@ ul.list li {
 
 #sidebar-left .menu a.active {
   background-color: #f0f0f0;
-  background-position: 17px 14px;
+  background-position: 17px 13px;
   color: #768718;
 }
 
@@ -507,30 +507,30 @@ ul.list li {
 }
 
 #sidebar-left .menu .menu li a {
-  background-position: 33px -107px;
+  background-position: 33px -106px;
   padding-left: 45px;
 }
 
 #sidebar-left .menu .menu li a.active {
-  background-position: 33px 14px;
+  background-position: 33px 13px;
 }
 
 #sidebar-left .menu .menu .menu li a {
-  background-position: 48px -47px;
+  background-position: 48px -106px;
   padding-left: 60px;
 }
 
 #sidebar-left .menu .menu .menu li a.active {
-  background-position: 48px 14px;
+  background-position: 48px 13px;
 }
 
 #sidebar-left .menu .menu .menu .menu li a {
-  background-position: 63px -47px;
+  background-position: 63px -106px;
   padding-left: 75px;
 }
 
 #sidebar-left .menu .menu .menu .menu li a.active {
-  background-position: 63px 14px;
+  background-position: 63px 13px;
 }
 
 #sidebar-left .menu li a.active-trail {
