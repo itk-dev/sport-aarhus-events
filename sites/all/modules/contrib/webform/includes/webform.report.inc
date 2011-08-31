@@ -1,5 +1,4 @@
 <?php
-// $Id: webform.report.inc,v 1.16.2.10 2010/09/29 18:38:19 quicksketch Exp $
 
 /**
  * @file
@@ -54,20 +53,14 @@ function webform_results_submissions($node, $user_filter, $pager_count) {
     }
     $row[] = l(t('View'), "node/$node->nid/submission/$sid");
     $operation_count = 1;
-    if (module_exists('print_pdf') && user_access('access PDF version')) {
-      $row[] = l(t('PDF'), "printpdf/$node->nid/submission/$sid", array('query' => drupal_get_destination()));
-      $operation_count++;
-    }
-    if (module_exists('print') && user_access('access print')) {
-      $row[] = l(t('Print'), "print/$node->nid/submission/$sid");
-      $operation_count++;
-    }
+    // No need to call this multiple times, just reference this in a variable.
+    $destination = drupal_get_destination();
     if (webform_submission_access($node, $submission, 'edit', $user)) {
-      $row[] = l(t('Edit'), "node/$node->nid/submission/$sid/edit", array('query' => drupal_get_destination()));
+      $row[] = l(t('Edit'), "node/$node->nid/submission/$sid/edit", array('query' => $destination));
       $operation_count++;
     }
     if (webform_submission_access($node, $submission, 'delete', $user)) {
-      $row[] = l(t('Delete'), "node/$node->nid/submission/$sid/delete", array('query' => drupal_get_destination()));
+      $row[] = l(t('Delete'), "node/$node->nid/submission/$sid/delete", array('query' => $destination));
       $operation_count++;
     }
     if ($operation_count < $operation_total) {
@@ -143,7 +136,7 @@ function theme_webform_results_per_page($total_count, $pager_count) {
  */
 function theme_webform_results_submissions_header($node) {
   $columns = array(
-    array('data' => t('#'), 'field' => 'sid', 'sort' => 'asc'),
+    array('data' => t('#'), 'field' => 'sid', 'sort' => 'desc'),
     array('data' => t('Submitted'), 'field' => 'submitted'),
   );
   if (webform_results_access($node)) {
@@ -191,7 +184,7 @@ function webform_results_table($node, $pager_count = 0) {
 
 function theme_webform_results_table_header($node) {
   return array(
-    array('data' => t('#'), 'field' => 'sid', 'sort' => 'asc'),
+    array('data' => t('#'), 'field' => 'sid', 'sort' => 'desc'),
     array('data' => t('Submitted'), 'field' => 'submitted'),
     array('data' => t('User'), 'field' => 'name'),
     array('data' => t('IP Address'), 'field' => 'remote_addr'),
@@ -236,7 +229,7 @@ function theme_webform_results_table($node, $components, $submissions, $total_co
       $data = isset($submission->data[$component['cid']]['value']) ? $submission->data[$component['cid']]['value'] : NULL;
       $submission_output = webform_component_invoke($component['type'], 'table', $component, $data);
       if ($submission_output !== NULL) {
-        $component_headers[] = $component['name'];
+        $component_headers[] = check_plain($component['name']);
         $cell[] = $submission_output;
       }
     }
@@ -337,6 +330,17 @@ function webform_results_download_form(&$form_state, $node) {
     ),
   );
 
+  $form['compress'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Include files'),
+    '#description' => t('All files in the webform results will be bundled in a .zip archive along with the exported results.'),
+  );
+
+  if (!class_exists('ZipArchive')) {
+    $form['compress']['#description'] = t('Unable to load ZipArchive class. This usually happens because the PHP interpreter is not compiled with zlib.');
+    $form['compress']['#disabled'] = TRUE;
+  }
+
   $form['select_options'] = array(
     '#type' => 'fieldset',
     '#title' => t('Select list options'),
@@ -404,6 +408,7 @@ function webform_results_download_form_submit(&$form, &$form_state) {
     'components' => array_keys(array_filter($form_state['values']['components'])),
     'select_keys' => $form_state['values']['select_keys'],
     'select_format' => $form_state['values']['select_format'],
+    'compress' => $form_state['values']['compress'],
   );
   webform_results_download($form_state['values']['node'], $form_state['values']['format'], $options);
 }
@@ -486,7 +491,7 @@ function theme_webform_results_download_select_format($element) {
  *   27 Feb 2005       ,1035,56 ,212   ,X         ,        ,        ,..,       ,X          ,X       ,X       ,..,X       ,How is this?
  *
  */
-function webform_results_download($node, $format = 'delimiter', $options = array()) {
+function webform_results_download($node, $format = 'delimited', $options = array()) {
   module_load_include('inc', 'webform', 'includes/webform.export');
   module_load_include('inc', 'webform', 'includes/webform.components');
 
@@ -504,8 +509,10 @@ function webform_results_download($node, $format = 'delimiter', $options = array
     $options = array(
       'delimiter' => variable_get('webform_csv_delimiter', '\t'),
       'components' => array_keys($submission_information) + array_keys(webform_component_list($node, 'csv', TRUE)),
+      'components' => array_merge(array_keys($submission_information), array_keys(webform_component_list($node, 'csv', TRUE))),
       'select_display' => 'value',
       'select_format' => 'separate',
+      'compress' => 0,
     );
   }
   else {
@@ -555,6 +562,7 @@ function webform_results_download($node, $format = 'delimiter', $options = array
 
   // Get all the submissions for the node.
   $submissions = webform_get_submissions($node->nid);
+  $attached_files = array();
 
   // Generate a row for each submission.
   $row_count = 0;
@@ -591,6 +599,9 @@ function webform_results_download($node, $format = 'delimiter', $options = array
         $raw_data = isset($submission->data[$cid]['value']) ? $submission->data[$cid]['value'] : NULL;
         if (webform_component_feature($component['type'], 'csv')) {
           $data = webform_component_invoke($component['type'], 'csv_data', $component, $options, $raw_data);
+          if ($component['type'] == 'file') {
+            $attached_files[] = webform_get_file($raw_data[0])->filepath;
+          }
           if (is_array($data)) {
             $row = array_merge($row, array_values($data));
           }
@@ -613,7 +624,28 @@ function webform_results_download($node, $format = 'delimiter', $options = array
 
   $export_name = _webform_safe_name($node->title);
   $exporter->set_headers($export_name);
-  @readfile($file_name);  // The @ makes it silent.
+
+  if ($options['compress'] == 1) {
+    $zh = new ZipArchive();
+    $zipfile = variable_get('file_directory_temp', file_directory_temp()) . '/webform' . time() . '.zip';
+    $zh->open($zipfile, ZIPARCHIVE::CREATE);
+    foreach ($attached_files as $file) {
+      if (!empty($file)) {
+        $zh->addFile(realpath($base_path . $file), basename($file));
+      }
+    }
+    $extension = '.csv';
+    if ($exporter->delimiter == "\t") {
+      $extension = '.tsv';
+    }
+    $zh->addFile(realpath($file_name), $export_name . $extension);
+    $zh->close();
+    @readfile($zipfile);
+    @unlink($zipfile);
+  }
+  else {
+    @readfile($file_name);  // The @ makes it silent.
+  }
   @unlink($file_name);  // Clean up, the @ makes it silent.
   exit();
 }
@@ -667,7 +699,7 @@ function theme_webform_results_analysis($node, $data, $sids = array(), $analysis
 
   $header = array(
     $single ? $analysis_component['name'] : t('Q'),
-    array('data' => $single ? '&nbsp' : t('responses'), 'colspan' => '10')
+    array('data' => $single ? '&nbsp;' : t('responses'), 'colspan' => '10')
   );
 
   foreach ($data as $cid => $row_data) {
@@ -676,8 +708,9 @@ function theme_webform_results_analysis($node, $data, $sids = array(), $analysis
     if (is_array($row_data)) {
       $row = array();
       if (!$single) {
-        $row[] = array('data' => '<strong>' . $question_number . '</strong>', 'rowspan' => count($row_data) + 1, 'valign' => 'top');
-        $row[] = array('data' => '<strong>' . check_plain($node->webform['components'][$cid]['name']) . '</strong>', 'colspan' => '10');
+        $row['data'][] = array('data' => '<strong>' . $question_number . '</strong>', 'rowspan' => count($row_data) + 1, 'valign' => 'top');
+        $row['data'][] = array('data' => '<strong>' . check_plain($node->webform['components'][$cid]['name']) . '</strong>', 'colspan' => '10');
+        $row['class'] = 'webform-results-question';
       }
       $rows = array_merge($rows, array_merge(array($row), $row_data));
     }
@@ -687,5 +720,5 @@ function theme_webform_results_analysis($node, $data, $sids = array(), $analysis
     $rows[] = array(array('data' => t('There are no submissions for this form. <a href="!url">View this form</a>.', array('!url' => url('node/' . $node->nid))), 'colspan' => 20));
   }
 
-  return theme('table', $header, $rows);
+  return theme('table', $header, $rows, array('class' => 'webform-results-analysis'));
 }
