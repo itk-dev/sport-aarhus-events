@@ -1,57 +1,50 @@
 <?php
-// $Id: languageinterface.module,v 1.19 2011/01/19 11:24:58 aaronhawkins Exp $
+// $Id: languageinterface.module,v 1.22 2011/01/23 20:29:46 aaronhawkins Exp $
 /**
  * @file
  * Creates a language switcher for Drupal 6
  */
-function languageinterface_init() {
-  if (variable_get('language_redirect', 0) == 1) {
-    $referrer = $_SERVER["HTTP_REFERER"];
-    $lastlanguage = '';
-    global $language;
-    global $base_url;
-    global $user;
-    $fullurl = $_SERVER['QUERY_STRING'];
-    $fullurl = str_replace('q=', '', $fullurl);
-    if (!empty($_SESSION['last_viewed_source'])) {
-      $lastviewed = $_SESSION['last_viewed_source'];
-    }
-    else {
-      $lastviewed = $_COOKIE['last_viewed_source'];
-      
-    }
-     
-    $internal = strpos($referrer, $base_url);
-    if ($lastviewed == 'goto') {
-      $internal = 20;
-    }
-    
-    if(!is_numeric($internal)) {
-      // not from internal link
-      $arg_1 = arg(1);
-      if (arg(0) == 'user' && empty($arg_1)) {
-        $lastlanguage = $_COOKIE['last_viewed_lang'];
+
+/*
+ * We don't use hook_init here, because then it wouldn't be called on cached pages.
+ * We don't use hook_boot, because some essential info isn't available that early in the page build.
+ */
+if (variable_get('language_redirect', 0) == 1) {
+  $referrer = $_SERVER["HTTP_REFERER"];
+  $lastlanguage = '';
+  global $language;
+  global $base_url;
+  $fullurl = $_SERVER['QUERY_STRING'];
+  $fullurl = str_replace('q=', '', $fullurl);
+  $lastviewed = $_SESSION['cli']['source'];     
+  if (is_numeric(strpos($referrer, $base_url)) || $lastviewed == 'goto') {
+    $internalref = TRUE;
+  }
+  else {
+    $internalref = FALSE;
+  }
+  if ($internalref == FALSE) {
+    // The user arrived through an external source
+    $lastlanguage = $_SESSION['cli']['lang'];
+    if (!empty($lastlanguage) && $lastviewed != 'goto') {
+      $languagepath = languagepath($lastlanguage);
+      if (empty($languagepath['domain'])) {
+        $languagepath = $base_url.'/'.$languagepath['path'];
       }
       else {
-        $lastlanguage = $_SESSION['lastlanguage'];
+        $languagepath = $languagepath['path'];
       }
-      if (!empty($lastlanguage) && $lastviewed != 'goto') {
-        $languagepath = languagepath($lastlanguage);
-        $_SESSION['last_viewed_source'] = array();
-        $_SESSION['last_viewed_source'] = 'goto';
-        setcookie("last_viewed_source", 'goto', time()+360000, '/');
-        drupal_goto($languagepath['path']);
-      }
-      
+      $_SESSION['cli']['source'] = 'goto';
+      drupal_goto($languagepath);
     }
-    if (is_numeric($internal)) {
-      $_SESSION['lastlanguage'] =  array();
-      $_SESSION['lastlanguage'] = $language->language;
-      $_SESSION['last_viewed_source'] = array();
-      $_SESSION['last_viewed_source'] = 'int';
-      setcookie("last_viewed_lang", $language->language, time()+360000, '/');
-      setcookie("last_viewed_source", 'int', time()+360000, '/');
-    }
+  }
+  if ($internalref == TRUE) {
+    // The user is clicking on a link to navigate
+    $_SESSION['cli'] = array();
+    $_SESSION['cli']['lang']   = array();
+    $_SESSION['cli']['source'] = array();
+    $_SESSION['cli']['lang']   = $language->language;
+    $_SESSION['cli']['source'] = 'int';
   }
 }
 
@@ -94,8 +87,8 @@ function languageinterface_block($op = 'list', $delta = 0, $edit = array()) {
 function languagepath($lang) {
   $new_path_array = array();
   $new_path_options['language'] = $lang;
-  // Check to see if there is a domain association for the language.
-	$domain = db_result(db_query("SELECT domain FROM {languages} WHERE language = '%s'", $lang));
+  
+  
   //We get the full url of the page.
   $fullurl = $_SERVER['QUERY_STRING'];
   
@@ -104,33 +97,20 @@ function languagepath($lang) {
   // We convert the url into an array.
   $urlarray = explode('/', $fullurl);
 
-  // We check to see if there is a language string in the url and remove it if so.
-  global $language;
   
+  global $language;
+  // We check to see if there is an empty space in the url and remove it if so.
   if ($urlarray[0] == "") {
     array_shift($urlarray);
   }
-  
+  // We check to see if there is a language string in the url and remove it if so.
   if ($urlarray[0] == $language->prefix) {
     array_shift($urlarray);
   }
   
+  $thislang = db_fetch_object(db_query("SELECT * FROM {languages} WHERE language = '%s'", $lang));
   
-  $default_language = language_default();
-  //&& variable_get('language_negotiation', LANGUAGE_NEGOTIATION_NONE) != LANGUAGE_NEGOTIATION_PATH
-  if ($lang == $default_language->language) {
-    if ($default_language->prefix) {
-      $prefix = $default_language->prefix;
-    }
-    else {
-      $prefix = NULL;
-    }
-  }
-  else {
-    $prefix = db_result(db_query("SELECT prefix FROM {languages} WHERE language = '%s'", $lang));
-  }
-  
-  
+  $prefix = $thislang->prefix;
   // We determine if we are looking at a node or some other kind of page.
   if ((arg(0) == 'node') && (is_numeric(arg(1)))) {
     $areatype = 'node';
@@ -144,13 +124,14 @@ function languagepath($lang) {
     
     $tnid = db_result(db_query("SELECT tnid FROM {node} WHERE nid = %d", $node_nid));
     if ($tnid) {
-      $destination_nid = specific_translation_exist($tnid, $lang);
+      $translation_nid = specific_translation_exist($tnid, $lang);
+      $destination_nid = $translation_nid;
     }
     else {
       $destination_nid = $node_nid;
     }
     $new_path_array['node_path'] = 'node/'.$destination_nid;    
-	}
+  }
   // Endif (current page is node)
 
   $remaining = implode("/", $urlarray);
@@ -178,19 +159,23 @@ function languagepath($lang) {
   $link['path'] = implode('/',$new_path_array);
   $alias = FALSE;
   // We look up the alias without the prefix. Otherwise it doesn't work.
-  
-  $alias = drupal_lookup_path('alias', $link['path'], $lang);
-  if ($alias != FAlSE) {
-    $link['path'] = $alias;
+  if ($translation_nid || $destination_nid == $node_nid) {
+    $alias = drupal_lookup_path('alias', $link['path'], $lang);
+    if ($alias != FAlSE) {
+      $link['path'] = $alias;
+    }
   }
+  
   if (!empty($prefix)) {
     // If no alias is returned we add the prefix so that the interface will be translated
+    // If there is no tranlation existing then we 
     $link['path'] = $prefix.'/'.$link['path'];
   }
-  if (!empty($domain)) {
+  if (!empty($thislang->domain)) {
     // If we are using a domain we put the domain in front of the path.
-    $link['path'] = 'http://'.$domain.'/'.$link['path'];
+    $link['path']     = 'http://'.$thislang->domain.'/'.$link['path'];
     $link['absolute'] = TRUE;
+    $link['domain']   = $thislang->domain; 
   }
   return $link;
 }
@@ -222,9 +207,10 @@ function language_link_creation() {
   $flagheight       = $customdimensions[1];
   $defaultflagpath  = drupal_get_path('module', 'languageinterface') .'/flags/*.png' ;
   $flagpath         = variable_get('custom_flag_path', $defaultflagpath);
+  if ($flagpath == '') {
+    $flagpath = $defaultflagpath;
+  }
   $textoptions      = variable_get('languageinterface_text', 'post');
-  
-  
   $languages = get_enabled_languages();
   $languagetext = variable_get('tl', '');
   
@@ -335,12 +321,12 @@ function theme_languageswitcher($links) {
     }
     // end switch
     $options['html']                = TRUE;
-		$options['attributes']['class'] = $classes;      
+    $options['attributes']['class'] = $classes;      
     $options['language']            = $link['language'];
     $options['query']               = $link['query'];
     $options['absolute']            = $link['absolute'];
     $options['external']            = $link['absolute'];
-		$output .= '<li class="'. $classes .'">'. l($display, $link['path'], $options) .'</li>';
+    $output .= '<li class="'. $classes .'">'. l($display, $link['path'], $options) .'</li>';
   }
   $output .= '</ul>';
   return $output;
@@ -425,11 +411,14 @@ function languageinterface_options() {
   }
     
    // end foreach
-  
+  $default_flagpath = variable_get('custom_flag_path', drupal_get_path('module', 'languageinterface').'/flags/*.png');
+  if ($default_flagpath == "") {
+    $default_flagpath = drupal_get_path('module', 'languageinterface').'/flags/*.png';
+  }
   $form['custom_flag_path'] = array(
     '#type' => 'textfield',
     '#title' => t('Custom path to flag icons'),
-    '#default_value' => variable_get('custom_flag_path', drupal_get_path('module', 'languageicons').'/flags/*.png'),
+    '#default_value' => $default_flagpath,
     '#size' => 80,
     '#maxlength' => 180,
     '#description' => t('Path for language flags, relative to Drupal installation. \'*\' is a placeholder for language code. If you wish to change the image type for the flag be sure to replace the png with the correct file type.'),
@@ -474,8 +463,7 @@ function languageinterface_options() {
 function languageinterface_options_submit($form, &$form_state) {
   if ($form_state['values']['reset_all'] == 0) {
     variable_set('language_redirect', $form_state['values']['redirect']);
-    
-    
+
     $enabledlanguages = get_enabled_languages();
     foreach($enabledlanguages as $lang) {
       $pretext[$lang]  = $form_state['values']['language_text']['pretext'][$lang];
@@ -509,7 +497,10 @@ function languageinterface_options_submit($form, &$form_state) {
       $dimensions = check_plain($form_state['values']['custom_dimensions']['flagwidth']) .'x'. check_plain($form_state['values']['custom_dimensions']['flagheight']) ;
       variable_set('custom_flag_dimensions', $dimensions);
     }
-   
+    else {
+      $dimensions = '16x12';
+      variable_set('custom_flag_dimensions', $dimensions);
+    }
     variable_set('languageinterface_text',$form_state['values']['flag_text_config']);
     variable_set('custom_flag_path', check_plain($form_state['values']['custom_flag_path']));
   }
@@ -523,6 +514,7 @@ function languageinterface_options_submit($form, &$form_state) {
   }
   drupal_set_message(t('Your configuration settings have been saved'), $type = 'status', $repeat = FALSE);
 }
+
 function currentlanguage(){
   global $language;
   return $language->language;

@@ -1,5 +1,4 @@
 <?php
-// $Id: i18nmenu_node_context_condition.inc,v 1.1 2010/09/18 09:31:30 plach Exp $
 
 /**
  * Expose translated node menu items as a context condition.
@@ -10,6 +9,9 @@ class i18nmenu_node_context_condition extends context_condition_menu {
    * Override of execute().
    */
   function execute() {
+    // Getting the current active trail may trigger a menu tree rendering.
+    i18n_selection_mode('off');
+
     // Execute the 'plain' menu condition. This will work for the source nodes.
     parent::execute();
 
@@ -26,5 +28,8 @@ class i18nmenu_node_context_condition extends context_condition_menu {
         }
       }
     }
+
+    // Restore language selection mode.
+    i18n_selection_mode('reset');
   }
 }

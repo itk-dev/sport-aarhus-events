@@ -50,10 +50,41 @@ div#admin-toolbar .form-button {
   clear: both;
 }
 
-/*
-  Context
-*/
+/* !----- / Context ----- */
 
-.context-editing .ui-sortable {
+body.context-editing div a.context-block-region {
+  -moz-border-radius: 5px 5px 5px 5px;
+  color: #fff;
+  display: block;
+  font-size: 18px;
+  height: 40px;
+  line-height: 40px;
+  margin: 5px 0 0;
+  opacity: 0.25;
+  text-align: center;
+}
+
+body.context-editing div .region.ui-sortable {
+  background: none repeat scroll 0 0 #d1ec9b;
+  .border-radius(5px);
+  height: auto;
+  margin: 5px 0;
+  padding: 0 0 10px;
   overflow: hidden;
+}
+
+body.context-editing div .region.ui-sortable.context-block-region-empty {
+  padding: 0;
+}
+
+body.context-editing div a.context-block-region,
+body.context-editing div.context-block-region-empty a.context-block-region {
+  background: #b2d56d;
+  color: #fff;
+  margin: 5px;
+  opacity: 1;
+}
+
+body.context-editing div.draggable-placeholder {
+  margin: 5px;
 }

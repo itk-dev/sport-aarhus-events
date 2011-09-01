@@ -1,5 +1,4 @@
 <?php
-// $Id: i18nmenu_node.module,v 1.25 2010/11/12 10:41:22 plach Exp $
 
 /**
  * @file
@@ -10,6 +9,20 @@
  *
  * @author Francesco Placella, http://www.psegno.it, 2010
  */
+
+/**
+ * Every [i18n] block delta has the form <module><separator><delta>.
+ */
+define('I18NMENU_NODE_BLOCK_SEPARATOR', '--');
+
+/**
+ * Implementation of hook_init().
+ */
+function i18nmenu_node_init() {
+  if ($node = menu_get_object()) {
+    i18nmenu_node_set_item($node);
+  }
+}
 
 /**
  * Return the information used to provide the [i18n] blocks.
@@ -40,9 +53,15 @@ function i18nmenu_node_block_info($module = NULL) {
  * Provide an i18n version of each menu block.
  */
 function i18nmenu_node_block($op = 'list', $delta = 0) {
+  // A longer separator would risk exceed the delta column max length.
+  $separator = I18NMENU_NODE_BLOCK_SEPARATOR;
+
   switch ($op) {
     case 'list':
       $blocks = array();
+      $schema = drupal_get_schema('blocks');
+      $max_length = $schema['fields']['delta']['length'];
+
       // Retrieve blocks from all the modules defined in the block information.
       foreach (i18nmenu_node_block_info() as $module => $data) {
         $module_blocks = module_invoke($module, 'block');
@@ -54,14 +73,27 @@ function i18nmenu_node_block($op = 'list', $delta = 0) {
           // Create an [i18n] version for each block and store the parent module
           // as part of the delta.
           foreach ($module_blocks as $delta => $block) {
-            $blocks["$module:$delta"]['info'] = t('[i18n] !block', array('!block' => $block['info']));
+            // Truncate the [i18n] block delta to the maximum allowed length and
+            // check that there is no block with such a delta already defined.
+            $mtn_delta = substr($module . $separator . $delta, 0, $max_length);
+            if (!isset($blocks[$mtn_delta])) {
+              $blocks[$mtn_delta]['info'] = t('[i18n] !block', array('!block' => $block['info']));
+              // Inherit block settings except for the 'info' key.
+              $blocks[$mtn_delta] += $block;
+            }
+            else {
+              $limit = $max_length - strlen($module . $separator);
+              $info = str_replace('[i18n] ', '', $blocks[$mtn_delta]['info']);
+              drupal_set_message(t('The [i18n] version of <em>@current_block</em> cannot be provided: the block identifier is already assigned to <em>@block</em>. Try to change the original block identifier before character !limit.', array('@current_block' => $block['info'], '@block' => $info, '!limit' => $limit)), 'warning', FALSE);
+            }
           }
         }
       }
+
       return $blocks;
 
     case 'view':
-      list($module, $delta) = explode(':', $delta, 2);
+      list($module, $delta) = explode($separator, $delta, 2);
       return i18nmenu_node_block_view($module, $delta);
   }
 }
@@ -464,12 +496,12 @@ function i18nmenu_node_nodeapi(&$node, $op, $a3 = NULL, $page = NULL) {
         // @todo: update new source translation node if the translation set is
         // empty.
         i18nmenu_node_item_translations_refresh_set($node->tnid);
-      }
-      break;
-
-    case 'view':
-      if ($page) {
-        i18nmenu_node_set_item($node);
+        // Remove the menu translation for the corresponding node translation.
+        if ($node->nid != $node->tnid) {
+          $tnode = (object) array('nid' => $node->tnid);
+          _i18nmenu_node_prepare($tnode);
+          _i18nmenu_node_delete_item_translation($tnode->menu['mlid'], $node->language);
+        }
       }
       break;
   }
@@ -508,7 +540,6 @@ function i18nmenu_node_context_registry_alter(&$registry) {
 function i18nmenu_node_token_list($type = 'all') {
   if ($type == 'node' || $type == 'all') {
     $tokens['node']['i18n-menupath-raw'] = t("The unfiltered menu path (as reflected in the breadcrumb), not including Home or [menu]. Separated by /.");
-    $tokens['node']['i18n-menuhierarchy-raw'] = t("<strong>[Deprecated] This will be removed in the first stable version. Use <code>[i18n-menupath-raw]</code> instead.</strong>");
     return $tokens;
   }
 }
@@ -538,7 +569,6 @@ function i18nmenu_node_token_values($type, $node = NULL, $options = array()) {
     }
 
     $values['i18n-menupath-raw'] = !empty($options['pathauto']) ? $trail_raw : $value;
-    $values['i18n-menuhierarchy-raw'] = $value;
   }
 
   return $values;
@@ -692,4 +722,12 @@ function i18nmenu_node_get_translations($tnid, $field = 'nid') {
     }
     return $result;
   }
+}
+
+/**
+ * Remove the translation strings for the given menu item and language.
+ */
+function _i18nmenu_node_delete_item_translation($mlid, $langcode) {
+  i18nstrings_remove_translation('menu:item:'. $mlid .':title', $langcode);
+  i18nstrings_remove_translation('menu:item:'. $mlid .':description', $langcode);
 }

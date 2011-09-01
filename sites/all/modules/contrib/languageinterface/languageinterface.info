@@ -20,8 +20,8 @@ datestamp = "1235080854"
 
 
 ; Information added by drupal.org packaging script on January 1, 1970 - 00:00
-version = "6.x-3.5"
+version = "6.x-3.6"
 core = "6.x"
 project = "languageinterface"
-datestamp = "1295455306"
+datestamp = "1295815303"
 
