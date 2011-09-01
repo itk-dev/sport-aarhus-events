@@ -357,8 +357,8 @@ ul.list li {
 /* Secondary menu */
 
 #header ul {
-  position: absolute;
-  right: 80px;
+  position: relative;
+  right: 0;
   text-align: right;
   top: 15px;
 }
@@ -374,10 +374,6 @@ ul.list li {
   margin: 0 15px 0 0;
   overflow: hidden;
   padding: 0;
-}
-
-#header ul li.last {
-  margin: 0;
 }
 
 #header ul li:hover {
@@ -560,8 +556,13 @@ ul.list li {
   Language select
 */
 
+#header .block-langswitch,
+#header .block-i18nmenu-node {
+  float: right;
+}
+
 #header .block-languageinterface ul {
-  right: 0px;
+  right: 0;
 }
 
 #header .block-languageinterface ul li {
