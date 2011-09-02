@@ -193,16 +193,16 @@ h1 {
   font-weight: bold;
 }
 
-#footer-blocks .block .content a,
-#footer-blocks .block .content a:link,
-#footer-blocks .block .content a:visited {
+#footer-blocks .block div a,
+#footer-blocks .block div a:link,
+#footer-blocks .block div a:visited {
   color: #fff;
   font-weight: bold;
   text-decoration: none;
 }
 
-#footer-blocks .block .content a:hover,
-#footer-blocks .block .content a:active {
+#footer-blocks .block div a:hover,
+#footer-blocks .block div a:active {
   text-decoration: underline;
 }
 
@@ -561,18 +561,8 @@ ul.list li {
   float: right;
 }
 
-#header .block-languageinterface ul {
-  right: 0;
-}
-
-#header .block-languageinterface ul li {
+#header .block-langswitch ul li {
   margin: 0;
-  text-align: center;
-  width: 65px;
-}
-
-#header .block-languageinterface .active {
-  display: none;
 }
 
 /*
