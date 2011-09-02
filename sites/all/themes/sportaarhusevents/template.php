@@ -11,7 +11,20 @@ function sportaarhusevents_preprocess_page(&$vars, $hook) {
   
 }
 
+// Missing span tag, see: http://drupal.org/node/653342
+function sportaarhusevents_menu_item_link($link) {
+  if (empty($link['localized_options'])) {
+    $link['localized_options'] = array();
+  }
 
+  // If an item is a LOCAL TASK, render it as a tab
+  if ($link['type']) {
+    $link['title'] = '<span class="tab">' . check_plain($link['title']) . '</span>';
+    $link['localized_options']['html'] = TRUE;
+  }
+
+  return l($link['title'], $link['href'], $link['localized_options']);
+}
 
 // 960 ns function
 function ns() {
