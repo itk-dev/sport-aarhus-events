@@ -766,13 +766,12 @@ ul.list li {
 .view-featured-content .views_slideshow_controls .views_slideshow_next,
 .view-featured-content .views_slideshow_singleframe_pager,
 .view-featured-content .views_slideshow_controls {
+  bottom: 10px;
   position: absolute;
   z-index: 6;
 }
 
 .view-featured-content .views_slideshow_controls {
-  bottom: 20px;
-  height: 35px;
   left: 0;
   width: 615px;
 }
@@ -786,7 +785,7 @@ ul.list li {
   bottom: 20px;
   display: block;
   float: left;
-  height: 35px;
+  height: 34px;
   right: 60px;
   outline: 0;
   overflow: hidden;
@@ -891,14 +890,15 @@ ul.list li {
   color: #fff;
   display: block;
   font-size: 170%;
-  padding: 10px;
+  padding: 10px 65px;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
 }
 
-.view-featured-content .content a p {
+#main-content .view-featured-content .content a p {
   font-size: 65%;
+  margin: 5px 0 0 1px;
   text-transform: none;
 }
 
