@@ -1,7 +1,7 @@
 <?php
 
 define('LANGSWITCH_SOURCE', 'da');
-define('LANGSWITCH_SOURCE_TITLE', 'Danish');
+define('LANGSWITCH_SOURCE_TITLE', 'Dansk');
 define('LANGSWITCH_TRANS', 'en');
 define('LANGSWITCH_TRANS_TITLE', 'English');
 define('LANGSWITCH_FRONT_PAGE', TRUE);
@@ -37,11 +37,11 @@ function langswitch_get_language_switch() {
   // Check if path is in the special array.
   if (isset($special[$path])) {
     if ($langcode == LANGSWITCH_SOURCE) {
-      $link = l(t(LANGSWITCH_TRANS_TITLE), LANGSWITCH_TRANS . '/' . $special[$path][LANGSWITCH_TRANS], array('language' => LANGSWITCH_TRANS));
+      $link = l(LANGSWITCH_TRANS_TITLE, LANGSWITCH_TRANS . '/' . $special[$path][LANGSWITCH_TRANS], array('language' => LANGSWITCH_TRANS));
     }
     else {
       // For some reason the l() function is not working here.
-      $link = '<a href="/' . $special[$path][LANGSWITCH_SOURCE] . '">' . t(LANGSWITCH_SOURCE_TITLE) . '</a>';
+      $link = '<a href="/' . $special[$path][LANGSWITCH_SOURCE] . '">' . LANGSWITCH_SOURCE_TITLE . '</a>';
     }
   }
   else {
@@ -51,10 +51,10 @@ function langswitch_get_language_switch() {
 
     if (!empty ($page)) {
       if (isset($page[LANGSWITCH_SOURCE])) {
-        $link = l(t(LANGSWITCH_SOURCE_TITLE), drupal_get_path_alias($page[LANGSWITCH_SOURCE], LANGSWITCH_SOURCE), array('language' => LANGSWITCH_SOURCE));
+        $link = l(LANGSWITCH_SOURCE_TITLE, drupal_get_path_alias($page[LANGSWITCH_SOURCE], LANGSWITCH_SOURCE), array('language' => LANGSWITCH_SOURCE));
       }
       else {
-        $link = l(t(LANGSWITCH_TRANS_TITLE), LANGSWITCH_TRANS . '/' . drupal_get_path_alias($page[LANGSWITCH_TRANS], LANGSWITCH_TRANS), array('language' => LANGSWITCH_TRANS));
+        $link = l(LANGSWITCH_TRANS_TITLE, LANGSWITCH_TRANS . '/' . drupal_get_path_alias($page[LANGSWITCH_TRANS], LANGSWITCH_TRANS), array('language' => LANGSWITCH_TRANS));
       }
     }
   }
@@ -67,10 +67,10 @@ function langswitch_get_language_switch() {
   // No translation where found, send user to front page?
   if (LANGSWITCH_FRONT_PAGE) {
     if ($langcode == LANGSWITCH_SOURCE) {
-      $link = $link = l(t(LANGSWITCH_TRANS_TITLE), LANGSWITCH_TRANS, array('language' => LANGSWITCH_TRANS));
+      $link = $link = l(LANGSWITCH_TRANS_TITLE, LANGSWITCH_TRANS, array('language' => LANGSWITCH_TRANS));
     }
     else {
-      $link = '<a href="/">' . t(LANGSWITCH_SOURCE_TITLE) . '</a>';
+      $link = '<a href="/">' . LANGSWITCH_SOURCE_TITLE . '</a>';
     }
     return '<ul class="language-switch"><li class="leaf">' . $link . '</li></ul>';
   }

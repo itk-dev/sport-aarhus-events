@@ -932,6 +932,8 @@ ul.list li {
 .block-nodeblock .quote,
 #event .quote {
   background: url('../images/quote.png') no-repeat 35px 45px;
+  margin-top: -15px;
+  min-width: 600px;
   width: 100%;
 }
 
