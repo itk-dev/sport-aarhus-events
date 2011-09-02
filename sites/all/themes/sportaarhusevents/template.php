@@ -26,6 +26,83 @@ function sportaarhusevents_menu_item_link($link) {
   return l($link['title'], $link['href'], $link['localized_options']);
 }
 
+/**
+ * Add current page to breadcrumb
+ */
+function sportaarhusevents_breadcrumb($breadcrumb) {
+  if (!empty($breadcrumb)) {
+    // Find the source node for translation nodes.
+    $source = translation_path_get_translations($_GET['q']);
+    if ($source) {
+      $source = $source['da'];
+    }
+    else {
+      $source = $_GET['q'];
+    }
+    $menu = db_fetch_object(db_query("SELECT menu_name
+                                        FROM {menu_links}
+                                       WHERE link_path = '%s'", $source))->menu_name;
+
+    // Change the active item to source node, to make active trail work and back
+    // again to not crash other parts of the page, after getting the menu tree.
+    $old_path = $_GET['q'];
+    menu_set_active_item($source);
+    $tree = menu_tree_page_data($menu);
+    menu_set_active_item($old_path);
+
+    // Find active trail.
+    global $language;
+    $trail = array();
+    sportaarhusevents_active_trail($tree, $trail, $language->language);
+
+    // Found trail, lets create links.
+    if (!empty($trail)) {
+      // Reset breadcrumb (do to menu_set_active_trail).
+      $breadcrumb = array(l(t('Home'), '<front>'));
+
+      // Build new breadcrumb.
+      $size = count($trail) - 1;
+      for ($i = 0; $i < $size; $i++) {
+        $breadcrumb[] = l($trail[$i]['title'], $trail[$i]['link_path']);
+      }
+      // Last item should not be at link.
+      $breadcrumb[] = t($trail[$i]['title']);
+    }
+    else if (arg(1) == 'apachesolr_search') {
+      // Fix link to search.
+      $breadcrumb[1] = l(t('Search'), 'search/apachesolr_search');
+    }
+    else {
+      // User current page title, as no trail was found.
+      $title = drupal_get_title();
+      if (!empty($title)) {
+        $breadcrumb[] = t($title);
+      }
+    }
+
+    return '<div class="breadcrumb">'. implode(' > ', $breadcrumb) .'</div>';
+  }
+}
+
+function sportaarhusevents_active_trail($menu, &$trail, $langcode) {
+  // Loop over the menu and find items in active trail.
+  foreach ($menu as $key => $item) {
+    if ($item['link']['in_active_trail']) {
+      // Found active trail, so add item to trail.
+      $title = $item['link']['title'];
+      $link_path = 'node/' . $item['link']['options']['translations'][$langcode]->nid;
+      $trail[] = array('title' => $title, 'link_path' => $link_path);
+
+      // Current item have sub-menus, call self on sub-menu.
+      if (is_array($item['below'])) {
+        sportaarhusevents_active_trail($item['below'], $trail, $langcode);
+      }
+      // Found active item, so break loop.
+      break;
+    }
+  }
+}
+
 // 960 ns function
 function ns() {
   $args = func_get_args();
