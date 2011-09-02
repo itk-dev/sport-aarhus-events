@@ -898,7 +898,7 @@ ul.list li {
 
 #main-content .view-featured-content .content a p {
   font-size: 65%;
-  margin: 5px 0 0 1px;
+  margin: 5px 0 0 ;
   text-transform: none;
 }
 
@@ -1013,6 +1013,14 @@ ul.list li {
 #main-wrapper .block.block-views .spotbox.event .image a {
   display: block;
   height: 40px;
+}
+
+#main-wrapper .block.block-views .spotbox.event .title a {
+  font-weight: bold;
+}
+
+#main-wrapper .block.block-views .spotbox.event .content p {
+  display: inline;
 }
 
 #main-wrapper .block.block-views .spotbox.event .content a {
