@@ -1398,9 +1398,13 @@ div.error {
   News
 */
 
-.node .field-newsimage {
+#news .date {
+  color: #636363;
+}
+
+#news .field-newsimage {
   float: left;
-  margin: 7px 15px 0 0;
+  margin: 12px 15px 0 0;
   width: 200px;
 }
 
