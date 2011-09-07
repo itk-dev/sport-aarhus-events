@@ -261,13 +261,13 @@ h1 {
 }
 
 #footer .block ul a {
-  background: url('../images/sprites.png') no-repeat 0 -32px;
+  background: url('../images/arrow-green.png') no-repeat 0 10px;
   padding: 0 0 0 8px;
 }
 
 #footer .block ul a:hover,
 #footer .block ul a:active {
-  background: url('../images/sprites.png') no-repeat 0 -67px;
+  background: url('../images/arrow.png') no-repeat 0 10px;
   color: #a5b938;
 }
 
