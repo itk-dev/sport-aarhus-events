@@ -39,6 +39,7 @@ function sportaarhusevents_breadcrumb($breadcrumb) {
     else {
       $source = $_GET['q'];
     }
+
     $menu = db_fetch_object(db_query("SELECT menu_name
                                         FROM {menu_links}
                                        WHERE link_path = '%s'", $source))->menu_name;
@@ -90,7 +91,12 @@ function sportaarhusevents_active_trail($menu, &$trail, $langcode) {
     if ($item['link']['in_active_trail']) {
       // Found active trail, so add item to trail.
       $title = $item['link']['title'];
-      $link_path = 'node/' . $item['link']['options']['translations'][$langcode]->nid;
+      // translations findes ikke for alle 
+      if ( isset($item['link']['options']['translations']) ) {
+         $link_path = 'node/' . $item['link']['options']['translations'][$langcode]->nid;
+      } else { 
+         $link_path = $item['link']['link_path'];
+      }
       $trail[] = array('title' => $title, 'link_path' => $link_path);
 
       // Current item have sub-menus, call self on sub-menu.

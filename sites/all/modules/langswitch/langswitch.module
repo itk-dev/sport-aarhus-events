@@ -47,14 +47,23 @@ function langswitch_get_language_switch() {
   else {
     // Translate node path, if on exists.
     $page = translation_path_get_translations($path);
+
     unset($page[$language->language]);
 
     if (!empty ($page)) {
       if (isset($page[LANGSWITCH_SOURCE])) {
-        $link = l(LANGSWITCH_SOURCE_TITLE, drupal_get_path_alias($page[LANGSWITCH_SOURCE], LANGSWITCH_SOURCE), array('language' => LANGSWITCH_SOURCE));
+        $link = l(LANGSWITCH_SOURCE_TITLE,                         drupal_get_path_alias($page[LANGSWITCH_SOURCE], LANGSWITCH_SOURCE), array('language' => LANGSWITCH_SOURCE));
       }
       else {
         $link = l(LANGSWITCH_TRANS_TITLE, LANGSWITCH_TRANS . '/' . drupal_get_path_alias($page[LANGSWITCH_TRANS], LANGSWITCH_TRANS), array('language' => LANGSWITCH_TRANS));
+      }
+    } else {
+      // sgl modified
+      if ($langcode == LANGSWITCH_TRANS ) {
+        $link = l(LANGSWITCH_SOURCE_TITLE,                         drupal_get_path_alias($path, LANGSWITCH_SOURCE), array('language' => LANGSWITCH_SOURCE));
+      }
+      else {
+        $link = l(LANGSWITCH_TRANS_TITLE, LANGSWITCH_TRANS . '/' . drupal_get_path_alias($path, LANGSWITCH_TRANS), array('language' => LANGSWITCH_TRANS));
       }
     }
   }
