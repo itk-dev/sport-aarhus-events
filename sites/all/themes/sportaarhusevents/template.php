@@ -42,7 +42,7 @@ function sportaarhusevents_breadcrumb($breadcrumb) {
 
     $menu = db_fetch_object(db_query("SELECT menu_name
                                         FROM {menu_links}
-                                       WHERE link_path = '%s'", $source))->menu_name;
+                                       WHERE link_path = '%s' order by weight", $source))->menu_name;
 
     // Change the active item to source node, to make active trail work and back
     // again to not crash other parts of the page, after getting the menu tree.
