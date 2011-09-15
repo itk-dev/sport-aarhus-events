@@ -57,7 +57,7 @@ p {
 
 ul,
 .block ul {
-  list-style: square;
+  list-style: square inside;
   margin: 0;
   padding: 0;
 }
@@ -80,7 +80,7 @@ h1 {
 }
 
 #content .node ul {
-  margin: 15px 25px;
+  margin: 15px 25px 15px 15px;
 }
 
 /*
