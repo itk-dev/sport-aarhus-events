@@ -1,0 +1,4 @@
+; $Id$
+name = Sport Aarhus Events admin helper module
+description = Sport Aarhus Events helper module.
+core = 6.x
