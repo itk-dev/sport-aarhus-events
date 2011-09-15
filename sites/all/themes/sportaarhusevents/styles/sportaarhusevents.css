@@ -668,6 +668,10 @@ ul.list li {
   color: #768718;
 }
 
+.block-nodeblock .spotbox .content a:hover {
+  text-decoration: underline;
+}
+
 #main-wrapper .block.block-views .view-members-list.spotbox.content,
 #main-wrapper .block.block-block view-members-list.block-content,
 .block-nodeblock view-members-list.spotbox .content {
