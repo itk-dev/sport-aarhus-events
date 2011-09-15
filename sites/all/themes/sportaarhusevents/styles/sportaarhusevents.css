@@ -647,7 +647,6 @@ ul.list li {
 
 #main-wrapper .block.block-views .spotbox.content,
 #main-wrapper .block.block-block .block-content,
-.block-nodeblock .spotbox .content p,
 .block-nodeblock .spotbox .content {
   background: #fff url('../images/gradient-shadow-top-8.png') repeat-x top;
   border-top: 1px solid #c3c2c2;
@@ -656,6 +655,10 @@ ul.list li {
   margin: 0;
   min-height: 45px;
   padding: 15px;
+}
+
+.block-nodeblock .spotbox .content p {  
+  color: #726557;
 }
 
 #main-wrapper .block.block-views .view-members-list.spotbox.content,
