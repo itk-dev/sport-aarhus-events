@@ -25,7 +25,13 @@
 */
 
 body {
-  background: #bfdbee url('../images/body-background.jpg') repeat-x top center;
+  background-color: #bfdbee;
+  background-attachment: fixed;
+  background-image: url('../images/body-background.jpg');
+  background-repeat: no-repeat;
+  -moz-background-size: cover;
+  webkit-background-size: cover;
+  background-size: cover;
   color: #000;
   font: 100%/150% Arial, Verdana, sans-serif;
   padding: 0 0 35px;

@@ -31,6 +31,7 @@ ie stylesheets[if IE 7][all][] = styles/ie7.css
 ;--------------------- scripts ------------------------------
 scripts[] = scripts/jquery.example.min.js
 scripts[] = scripts/jquery.hoverintent.minified.js
+scripts[] = scripts/flexi-background-jquery.js
 scripts[] = scripts/common.js
 
 ;--------------------- features ----------------------------
