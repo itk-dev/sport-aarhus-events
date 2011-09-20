@@ -25,12 +25,12 @@
 */
 
 body {
-  background-color: #bfdbee;
   background-attachment: fixed;
+  background-color: #bfdbee;
   background-image: url('../images/body-background.jpg');
   background-repeat: no-repeat;
   -moz-background-size: cover;
-  webkit-background-size: cover;
+  -webkit-background-size: cover;
   background-size: cover;
   color: #000;
   font: 100%/150% Arial, Verdana, sans-serif;
@@ -381,6 +381,7 @@ ul.list li {
   margin: 0 15px 0 0;
   overflow: hidden;
   padding: 0;
+  position: relative;
 }
 
 #header ul li:hover {
@@ -1481,4 +1482,30 @@ div.error {
   right: 0;
   text-indent: -10000px;
   width: 187px;
+}
+
+/*
+  Flexi background
+*/
+
+img#expando {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  -ms-interpolation-mode: bicubic;
+}
+
+.wide img#expando,
+.tall img#expando {
+  display: block;
+}
+
+.wide img#expando {
+  height: auto;
+  width: 100%;
+}
+
+.tall img#expando {
+  height: 100%;
+  width: auto;
 }
