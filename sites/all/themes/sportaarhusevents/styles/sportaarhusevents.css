@@ -99,14 +99,14 @@ h1 {
 }
 
 #header {
-  height: 115px;
+  height: 137px;
   position: relative;
 }
 
 #logo {
   left: 10px;
   position: absolute;
-  top: 15px;
+  top: 20px;
 }
 
 #main {
@@ -1474,14 +1474,14 @@ div.error {
 */
 
 .team-up-with-aarhus {
-  background: url('/sites/default/files/content/team-up-with-aarhus-small.png') no-repeat;
+  background: url('/sites/default/files/content/team-up-with-aarhus-final.png') no-repeat;
   bottom: 15px;
   display: block;
-  height: 47px;
+  height: 75px;
   position: absolute;
   right: 0;
   text-indent: -10000px;
-  width: 187px;
+  width: 114px;
 }
 
 /*
