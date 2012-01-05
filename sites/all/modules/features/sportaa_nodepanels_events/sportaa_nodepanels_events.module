@@ -1,0 +1,3 @@
+<?php
+
+include_once('sportaa_nodepanels_events.features.inc');
