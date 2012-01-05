@@ -1,7 +1,7 @@
 name = "Event Node Panels"
 description = "Node panels for the event content type"
 core = "6.x"
-package = "Features"
+package = "Components"
 version = "6.x-1.0"
 project = "sportaa_nodepanels_events"
 dependencies[] = "ctools"
