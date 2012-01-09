@@ -1060,6 +1060,59 @@ ul.list li,
 }
 
 /*
+  Views exposed forms
+*/
+
+.views-exposed-form {
+  background-color: #ebebeb;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  border: 0;
+  padding: 10px 15px;
+  margin-bottom: 16px;
+}
+
+.styled-filter-date .form-description,
+.views-exposed-widget > label {
+  position: absolute;
+  left: -9999em;
+}
+
+.styled-filter-date .form-item,
+.styled-filter-date .container-inline-date .form-item {
+  margin: 0;
+  clear: none;
+  display: inline;
+  float: none;
+}
+
+.styled-filter-date .container-inline-date {
+  float: left;
+}
+
+.styled-filter-date .form-item label {
+  display: inline;
+}
+
+/* 
+html[lang="da"] .styled-filter-date #edit-date-filter-min-wrapper:before {
+  content: 'Vis events fra';
+  display: inline;
+}
+
+html[lang="da"] .styled-filter-date #edit-date-filter-max-wrapper:before {
+  content: 'til';
+  display: inline;
+}
+*/
+
+.styled-filter-date .views-exposed-widget {
+  float: left;
+}
+
+
+/*
   Views lists
 */
 
