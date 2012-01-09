@@ -1,3 +1,16 @@
 <?php
 
 include_once('sportaa_event_listings.features.inc');
+
+/**
+ * Implements hook_form_ID_alter().
+ *
+ * Inserts correct urls in views with arguments inserted into panels.
+ */
+function sportaa_event_listings_form_views_exposed_form_alter(&$form, &$form_state) {
+  if ($form['#id'] == 'views-exposed-form-event-list-panel-pane-5') {
+
+    // if so, change the form action to reflect the panel's path
+    $form['#action'] = request_uri();
+  }
+}
