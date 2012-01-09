@@ -306,7 +306,8 @@ h1 {
 */
 
 ul.menu li,
-ul.list li {
+ul.list li,
+.menu .views-summary > li {
   list-style: none;
   list-style-image: none; /* hide image in IE 7 */
   padding: 0;
@@ -409,7 +410,8 @@ ul.list li {
   padding: 0;
 }
 
-#sidebar-left .menu li {
+#sidebar-left .menu li,
+#sidebar-left .menu > p /* 'More link' styled to look like menu item */ {
   background-color: #ebebeb;
   border-top: 1px solid #d8d8d8;
   line-height: 175%;
@@ -417,7 +419,8 @@ ul.list li {
   padding: 0;
 }
 
-#sidebar-left .menu li a {
+#sidebar-left .menu li a,
+#sidebar-left .menu > p a /* 'More link' styled to look like menu item */ {
   border-top: 1px solid #f7f7f7;
 }
 
@@ -426,7 +429,10 @@ ul.list li {
 }
 
 #sidebar-left .menu li.first,
-#sidebar-left .menu li.first a {
+#sidebar-left .menu li.first a,
+/* 'views-summary' styled to look like menu item */
+#sidebar-left .menu .views-summary > li:first-child,
+#sidebar-left .menu .views-summart > li:first-child a {
   -moz-border-radius: 8px 8px 0 0;
   -webkit-border-radius: 8px 8px 0 0;
   border-radius: 8px 8px 0 0;
@@ -472,7 +478,8 @@ ul.list li {
 }
 
 #sidebar-left .menu li.last,
-#sidebar-left .menu li.last a {
+#sidebar-left .menu li.last a,
+#sidebar-left .menu .item-list + p {
   -moz-border-radius: 0 0 8px 8px;
   -webkit-border-radius: 0 0 8px 8px;
   border-radius: 0 0 8px 8px;
