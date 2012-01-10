@@ -11,6 +11,10 @@
   margin: -18px 0 0;
 }
 
+#sidebar-left .menu .views-summary {
+  margin-top: 18px;
+}
+
 #sidebar-left .menu .menu {
   margin: 0;
 }
@@ -28,3 +32,4 @@
 .block-nodeblock .spotbox .title {
   width: 300px;
 }
+
