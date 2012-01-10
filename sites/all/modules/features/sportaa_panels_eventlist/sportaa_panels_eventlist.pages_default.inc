@@ -11,19 +11,24 @@ function sportaa_panels_eventlist_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Events';
   $page->admin_description = '';
-  $page->path = 'events/%year';
+  $page->path = 'events/!termid';
   $page->access = array(
     'plugins' => array(),
     'logic' => 'and',
   );
   $page->menu = array();
   $page->arguments = array(
-    'year' => array(
+    'termid' => array(
       'id' => 1,
-      'identifier' => 'Tekst',
-      'name' => 'string',
+      'identifier' => 'Taxonomy term: ID',
+      'name' => 'term',
       'settings' => array(
-        'use_tail' => 0,
+        'input_form' => 'tid',
+        'vids' => array(
+          2 => 2,
+          1 => 0,
+        ),
+        'breadcrumb' => 1,
       ),
     ),
   );
@@ -46,18 +51,7 @@ function sportaa_panels_eventlist_default_page_manager_pages() {
     'contexts' => array(),
     'relationships' => array(),
     'access' => array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'string_equal',
-          'settings' => array(
-            'operator' => 'regex',
-            'value' => '/^(19|20)\\d\\d$/',
-            'case' => 0,
-          ),
-          'context' => 'argument_string_1',
-          'not' => FALSE,
-        ),
-      ),
+      'plugins' => array(),
       'logic' => 'and',
     ),
   );
@@ -71,17 +65,21 @@ function sportaa_panels_eventlist_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Sport Aarhus Events %year:raw';
+  $display->title = '';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
     $pane->pid = 'new-1';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
-    $pane->subtype = 'event_list-panel_pane_4';
+    $pane->subtype = 'event_list-panel_pane_5';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_term_1',
+      ),
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -94,32 +92,8 @@ function sportaa_panels_eventlist_default_page_manager_pages() {
     $pane->position = 0;
     $display->content['new-1'] = $pane;
     $display->panels['middle'][0] = 'new-1';
-    $pane = new stdClass;
-    $pane->pid = 'new-2';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'event_list-panel_pane_3';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'date_argument' => '',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'event-list',
-    );
-    $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-2'] = $pane;
-    $display->panels['middle'][1] = 'new-2';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
+  $display->hide_title = PANELS_TITLE_NONE;
+  $display->title_pane = 'new-1';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['events'] = $page;
