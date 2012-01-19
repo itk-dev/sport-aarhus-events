@@ -125,10 +125,13 @@ function sportaa_event_listings_views_default_views() {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
+  $handler->override_option('header_format', '1');
+  $handler->override_option('header_empty', 0);
   $handler->override_option('items_per_page', 6);
   $handler->override_option('use_pager', '1');
   $handler->override_option('use_more', 0);
   $handler->override_option('use_more_always', 0);
+  $handler->override_option('use_more_text', 'Alle');
   $handler->override_option('style_plugin', 'semanticviews_default');
   $handler->override_option('style_options', array(
     'grouping' => '',
@@ -1222,8 +1225,6 @@ function sportaa_event_listings_views_default_views() {
   ));
   $handler->override_option('css_class', 'spotbox event');
   $handler->override_option('header', '<h3><a href="/events" title="Events">Kommende events</a></h3>');
-  $handler->override_option('header_format', '1');
-  $handler->override_option('header_empty', 0);
   $handler->override_option('footer', '<a href="/events" title="Se alle events" class="more-link">Se alle events</a>');
   $handler->override_option('footer_format', '1');
   $handler->override_option('footer_empty', 0);
@@ -1542,8 +1543,6 @@ function sportaa_event_listings_views_default_views() {
   ));
   $handler->override_option('css_class', 'spotbox event');
   $handler->override_option('header', '<h3><a href="/events" title="Events">Tidligere events</a></h3>');
-  $handler->override_option('header_format', '1');
-  $handler->override_option('header_empty', 0);
   $handler->override_option('footer', '<a href="/events" title="Se alle events" class="more-link">Se alle events</a>');
   $handler->override_option('footer_format', '1');
   $handler->override_option('footer_empty', 0);
@@ -3669,14 +3668,11 @@ function sportaa_event_listings_views_default_views() {
     ),
   ));
   $handler->override_option('css_class', 'menu');
-  $handler->override_option('header_format', '1');
-  $handler->override_option('header_empty', 0);
-  $handler->override_option('footer', '<a href="/eventssport/all" title="Alle events" class="menu-item last">Alle events</a>');
+  $handler->override_option('footer', '<a href="/events/all" title="All events" class="menu-item last">All events</a>');
   $handler->override_option('footer_format', '1');
   $handler->override_option('footer_empty', 0);
   $handler->override_option('items_per_page', 4);
   $handler->override_option('use_pager', FALSE);
-  $handler->override_option('use_more_text', 'Alle');
   $handler->override_option('style_options', array(
     'grouping' => '',
     'group' => array(
