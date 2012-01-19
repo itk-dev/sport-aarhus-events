@@ -65,7 +65,7 @@ function sportaa_panels_eventlist_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = '%termid:name';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
@@ -79,6 +79,8 @@ function sportaa_panels_eventlist_default_page_manager_pages() {
       'context' => array(
         0 => 'argument_term_1',
       ),
+      'override_title' => 1,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -92,7 +94,7 @@ function sportaa_panels_eventlist_default_page_manager_pages() {
     $pane->position = 0;
     $display->content['new-1'] = $pane;
     $display->panels['middle'][0] = 'new-1';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_PANE;
   $display->title_pane = 'new-1';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
