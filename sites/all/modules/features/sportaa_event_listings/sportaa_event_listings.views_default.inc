@@ -3121,9 +3121,22 @@ function sportaa_event_listings_views_default_views() {
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('sorts', array(
+    'field_event_date_value' => array(
+      'order' => 'DESC',
+      'delta' => -1,
+      'id' => 'field_event_date_value',
+      'table' => 'node_data_field_event_date',
+      'field' => 'field_event_date_value',
+      'relationship' => 'none',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+    ),
+  ));
   $handler->override_option('arguments', array(
     'tid' => array(
-      'default_action' => 'ignore',
+      'default_action' => 'not found',
       'style_plugin' => 'default_summary',
       'style_options' => array(),
       'wildcard' => 'all',
@@ -3317,15 +3330,15 @@ function sportaa_event_listings_views_default_views() {
     'weight' => '0',
   ));
   $handler->override_option('allow', array(
-    'use_pager' => FALSE,
-    'items_per_page' => FALSE,
-    'offset' => FALSE,
-    'link_to_view' => FALSE,
-    'more_link' => FALSE,
-    'path_override' => FALSE,
-    'title_override' => FALSE,
-    'exposed_form' => FALSE,
-    'fields_override' => FALSE,
+    'use_pager' => 0,
+    'items_per_page' => 0,
+    'offset' => 0,
+    'link_to_view' => 0,
+    'more_link' => 0,
+    'path_override' => 0,
+    'title_override' => 'title_override',
+    'exposed_form' => 0,
+    'fields_override' => 0,
   ));
   $handler->override_option('argument_input', array(
     'tid' => array(
@@ -3668,10 +3681,10 @@ function sportaa_event_listings_views_default_views() {
     ),
   ));
   $handler->override_option('css_class', 'menu');
-  $handler->override_option('footer', '<a href="/events/all" title="All events" class="menu-item last">All events</a>');
+  $handler->override_option('footer', '<a href="/events/all" title="Alle events" class="menu-item last">Alle events</a>');
   $handler->override_option('footer_format', '1');
   $handler->override_option('footer_empty', 0);
-  $handler->override_option('items_per_page', 4);
+  $handler->override_option('items_per_page', 0);
   $handler->override_option('use_pager', FALSE);
   $handler->override_option('style_options', array(
     'grouping' => '',
