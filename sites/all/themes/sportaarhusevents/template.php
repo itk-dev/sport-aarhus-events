@@ -66,6 +66,12 @@ function sportaarhusevents_breadcrumb($breadcrumb) {
       for ($i = 0; $i < $size; $i++) {
         $breadcrumb[] = l($trail[$i]['title'], $trail[$i]['link_path']);
       }
+
+      // If an event is shown, remove the year from the breadcrumb.
+      if (preg_match('/^events\/(\d\d\d\d)/', drupal_get_path_alias($_GET['q']))) {
+        array_pop($breadcrumb);
+      }
+
       // Last item should not be at link.
       $breadcrumb[] = t($trail[$i]['title']);
     }
@@ -74,6 +80,12 @@ function sportaarhusevents_breadcrumb($breadcrumb) {
       $breadcrumb[1] = l(t('Search'), 'search/apachesolr_search');
     }
     else {
+
+      // Add events to the breadcrumb, when not in menu.
+      if (arg(0) == 'events') {
+        $breadcrumb[] = l(t('Events'), 'events');
+      }
+
       // User current page title, as no trail was found.
       $title = drupal_get_title();
       if (!empty($title)) {
