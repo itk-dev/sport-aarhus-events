@@ -127,7 +127,6 @@ function sportaa_event_listings_views_default_views() {
   ));
   $handler->override_option('header_format', '1');
   $handler->override_option('header_empty', 0);
-  $handler->override_option('items_per_page', 6);
   $handler->override_option('use_pager', '1');
   $handler->override_option('use_more', 0);
   $handler->override_option('use_more_always', 0);
@@ -1718,6 +1717,7 @@ function sportaa_event_listings_views_default_views() {
     ),
   ));
   $handler->override_option('title', 'Events');
+  $handler->override_option('items_per_page', 6);
   $handler->override_option('use_pager', '0');
   $handler->override_option('style_options', array(
     'grouping' => '',
@@ -3009,8 +3009,10 @@ function sportaa_event_listings_views_default_views() {
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -3025,6 +3027,7 @@ function sportaa_event_listings_views_default_views() {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'link_to_node' => 0,
       'label_type' => 'none',
       'format' => 'default',
@@ -3063,7 +3066,7 @@ function sportaa_event_listings_views_default_views() {
         'word_boundary' => 1,
         'ellipsis' => 1,
         'html' => 1,
-        'strip_tags' => 0,
+        'strip_tags' => 1,
       ),
       'empty' => '',
       'hide_empty' => 1,
@@ -3136,12 +3139,12 @@ function sportaa_event_listings_views_default_views() {
   ));
   $handler->override_option('arguments', array(
     'tid' => array(
-      'default_action' => 'not found',
+      'default_action' => 'ignore',
       'style_plugin' => 'default_summary',
       'style_options' => array(),
       'wildcard' => 'all',
       'wildcard_substitution' => 'Alle',
-      'title' => '%1 in Aarhus',
+      'title' => '%1 i Aarhus',
       'breadcrumb' => '',
       'default_argument_type' => 'fixed',
       'default_argument' => '',
