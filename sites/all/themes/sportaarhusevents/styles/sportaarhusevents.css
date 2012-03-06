@@ -432,7 +432,7 @@ ul.list li,
 #sidebar-left .menu li.first a,
 /* 'views-summary' styled to look like menu item */
 #sidebar-left .menu .views-summary > li:first-child,
-#sidebar-left .menu .views-summart > li:first-child a {
+#sidebar-left .menu .views-summary > li:first-child a {
   -moz-border-radius: 8px 8px 0 0;
   -webkit-border-radius: 8px 8px 0 0;
   border-radius: 8px 8px 0 0;
@@ -479,7 +479,8 @@ ul.list li,
 
 #sidebar-left .menu li.last,
 #sidebar-left .menu li.last a,
-#sidebar-left .menu .item-list + p {
+#sidebar-left .menu .item-list + p,
+#sidebar-left .menu .item-list + p a {
   -moz-border-radius: 0 0 8px 8px;
   -webkit-border-radius: 0 0 8px 8px;
   border-radius: 0 0 8px 8px;
