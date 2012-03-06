@@ -248,6 +248,19 @@ function sportaa_event_configuration_views_default_views() {
       ),
     ),
   ));
+  $handler->override_option('sorts', array(
+    'field_event_date_value' => array(
+      'order' => 'DESC',
+      'delta' => -1,
+      'id' => 'field_event_date_value',
+      'table' => 'node_data_field_event_date',
+      'field' => 'field_event_date_value',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
   $handler->override_option('filters', array(
     'type' => array(
       'operator' => 'in',
