@@ -8,9 +8,9 @@ dependencies[] = i18nmenu
 package = Multilanguage
 core = 6.x
 
-; Information added by drupal.org packaging script on 2011-08-08
-version = "6.x-1.1"
+; Information added by drupal.org packaging script on 2011-11-04
+version = "6.x-1.2"
 core = "6.x"
 project = "i18nmenu_node"
-datestamp = "1312808216"
+datestamp = "1320402931"
 

@@ -7,6 +7,18 @@ Menu translation (Node) 6.x-1.x, xxxx-xx-xx
 -------------------------------------------
 
 
+Menu translation (Node) 6.x-1.2, 2011-11-04
+-------------------------------------------
+#1331570 by derhasi: Fixed Wrong version comparison in
+  i18nmenu_node_requirements().
+#1270734 by plach: Fixed The current menu item should be set only when node
+  translation is enabled.
+#1245012 by plach: Fixed Enabling node translations should be available only for
+  source nodes.
+#1245000 by plach: Fixed Menu item ignored by [i18n-menupath-raw] for
+  translation nodes.
+
+
 Menu translation (Node) 6.x-1.1, 2011-08-08
 -------------------------------------------
 #1183692 by plach: i18nmenu_node_set_item() should be called as early as

@@ -71,7 +71,7 @@ function i18nmenu_node_requirements($phase) {
       $info = drupal_parse_info_file($file);
       $version = explode('-', $info['version']);
       // We do not support extra version information, dev versions are ignored.
-      if (!empty($version[1]) && $version[1] < $data['version'] && (empty($version[2]) || $version[2] != 'dev')) {
+      if (!empty($version[1]) && version_compare($version[1], $data['version']) < 0 && (empty($version[2]) || $version[2] != 'dev')) {
         $requirements["i18nmenu_node_$module"] = array(
           'title' => $t('Menu translation (Node)'),
           'value' => $t('%module version needs to be at least %min_version', array('%module' => $info['name'], '%min_version' => $data['version'])),
