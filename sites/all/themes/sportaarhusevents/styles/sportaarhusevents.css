@@ -317,11 +317,9 @@ ul.list li,
 
 #main-menu {
   background: url('../images/main-menu-bg.png') repeat-x;
-  behavior: url('/sites/all/themes/sportaarhusevents/styles/pie.htc');
   -moz-border-radius: 8px 8px 0 0;
   -webkit-border-radius: 8px 8px 0 0;
   border-radius: 8px 8px 0 0;
-  position: relative;
 }
 
 #main-menu ul.menu {
